@@ -12,9 +12,9 @@ namespace TrainingAssistant.models
         public enum WeatherConditions { vfr, mvfr, ifr}
         DateTime start { get; set; }
         DateTime finish { get; set; }
-        int markups { get; set; }
-        int markdowns { get; set; }
-        List<string> reviewed { get; set; }
+        public int markups { get; set; }
+        public int markdowns { get; set; }
+        public List<string> reviewed { get; set; }
         public bool otsPass { get; set; }
         public bool otsFail { get; set; }
 
@@ -25,6 +25,11 @@ namespace TrainingAssistant.models
         public ComplexityLevel complexity { get; set; }
         public WeatherConditions weather { get; set; }
         public Dictionary<string, int> combos { get; set; }
+        public Dictionary<string, int> gndEvents { get; set; }
+        public Dictionary<string, int> twrEvents { get; set; }
+        public Dictionary<string, int> appEvents { get; set; }
+        public Dictionary<string, int> genEvents { get; set; }
+        public Dictionary<string, int> posEvents { get; set; }
 
         public Session()
         {
@@ -48,18 +53,45 @@ namespace TrainingAssistant.models
                 {"phraseology", 10},
                 {"priority", 10}
             };
-        }
+            this.gndEvents = new Dictionary<string, int>()
+            {
+                {"wafdof", 0},
+                {"squawk", 0},
+                {"clnc_late", 0},
+                {"clnc_wrong", 0}
+            };
+            this.twrEvents = new Dictionary<string, int>()
+            {
+                {"landing", 0},
+                {"takeoff", 0},
+                {"luaw", 0},
+                {"turbulence", 0}
+            };
+            this.appEvents = new Dictionary<string, int>()
+            {
+                {"clnc", 0},
+                {"mva", 0},
+                {"sop", 0},
+                {"fix", 0}
+            };
+            this.genEvents = new Dictionary<string, int>()
+            {
+                {"slow", 0},
+                {"separation", 0},
+                {"phraseology", 0},
+                {"near", 0},
+                {"incident", 0}
+            };
+            this.posEvents = new Dictionary<string, int>()
+            {
+                {"flow", 0},
+                {"situational", 0},
+                {"phraseology", 0},
+                {"separation", 0},
+                {"pointouts", 0},
+                {"sequencing", 0}
+            };
 
-        public Boolean isPassing()
-        {
-            //calculate if the student is passing
-            return true;
-        }
-
-        public int calculateGrade()
-        {
-            //calculate the grade and return it
-            return 5;
         }
 
         public int getTime()
@@ -67,39 +99,10 @@ namespace TrainingAssistant.models
             return (int)DateTime.Now.Subtract(this.start).TotalMinutes;
         }
 
-        public void addMarkup()
-        {
-            this.markups += 1;
-        }
-
-        public void addMarkdown()
-        {
-            this.markdowns -= 1;
-        }
-
-        public int getMarkups()
-        {
-            return this.markups;
-        }
-
-        public int getMarkdowns()
-        {
-            return this.markdowns;
-        }
-
-        public void addReview(string s)
-        {
-            this.reviewed.Add(s);
-        }
-
-        public bool removeReview(string s)
-        {
-            return this.reviewed.Remove(s);
-        }
-
         public void complete()
         {
             this.finish = DateTime.Now;
+            Report r = new Report();
         }
 
         public double updateScore()
@@ -144,19 +147,72 @@ namespace TrainingAssistant.models
                     modifier -= 0.1;
                     break;
             }
-            this.posPoints = this.combos.Values.Sum();
-            double n = this.negPoints * modifier;
-            n += this.posPoints;
-            this.score = n / 120;
+            this.posPoints = calcPosPoints();
+            this.negPoints = calcNegPoints();
+            this.score = (this.posPoints - this.negPoints) / 120;
             return this.score;
-            
         }
 
-        public Report finishTraining()
+        public bool checkFail()
         {
-            Report r = new Report();
+            bool fail = false;
+            if (this.score < 75) { return true; }
+            if (this.twrEvents["luaw"] > 3) { return true; }
+            if (this.appEvents["mva"] > 3) { return true; }
+            if (this.genEvents["separation"] > 3) { return true; }
+            if (this.genEvents["near"] > 2) { return true; }
+            if (this.genEvents["incident"] > 1) { return true; }
+            return false;
+        }
 
-            return r;
+        public int calcMarkups()
+        {
+            return this.posEvents.Values.Sum();
+        }
+
+        public int calcMarkdowns()
+        {
+            return this.gndEvents.Values.Sum() + this.twrEvents.Values.Sum() + this.appEvents.Values.Sum() + this.genEvents.Values.Sum();
+        }
+
+        public int calcNegPoints()
+        {
+            int n = 0;
+            n += this.gndEvents["wafdof"] * 2;
+            n += this.gndEvents["squawk"] * 2;
+            n += this.gndEvents["clnc_late"] * 1;
+            n += this.gndEvents["clnc_wrong"] * 2;
+
+            n += this.twrEvents["landing"] * 2;
+            n += this.twrEvents["takeoff"] * 2;
+            n += this.twrEvents["luaw"] * 4;
+            n += this.twrEvents["turbulence"] * 3;
+
+            n += this.appEvents["clearance"] * 3;
+            n += this.appEvents["mva"] * 4;
+            n += this.appEvents["sop"] * 2;
+            n += this.appEvents["fix"] * 2;
+
+            n += this.genEvents["slow"] * 2;
+            n += this.genEvents["seperation"] * 3;
+            n += this.genEvents["phraseology"] * 2;
+            n += this.genEvents["near"] * 4;
+            n += this.genEvents["incident"] * 6;
+
+            return n;
+        }
+
+        public int calcPosPoints()
+        {
+            int n = 0;
+            n += this.posEvents["flow"] * 2;
+            n += this.posEvents["situational"] * 4;
+            n += this.posEvents["phraseology"] * 2;
+            n += this.posEvents["separation"] * 3;
+            n += this.posEvents["pointouts"] * 2;
+            n += this.posEvents["sequencing"] * 3;
+
+            return n;
         }
     }
 }

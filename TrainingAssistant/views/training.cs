@@ -40,162 +40,116 @@ namespace TrainingAssistant.views
 
         private void btn_d_wafdof_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 2;
+            this.s.gndEvents["wafdof"]++;
         }
         private void btn_d_squawk_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 2;
+            this.s.gndEvents["squawk"]++;
         }
 
         private void btn_d_cddelay_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 1;
+            this.s.gndEvents["clnc_late"]++;
         }
 
         private void btn_d_cdclearance_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 2;
+            this.s.gndEvents["clnc_wrong"]++;
         }
 
         private void btn_d_landing_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 2;
+            this.s.twrEvents["landing"]++;
         }
 
         private void btn_d_takeoff_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 2;
+            this.s.twrEvents["takeoff"]++;
         }
 
         private void btn_d_luaw_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 5;
+            this.s.twrEvents["luaw"]++;
         }
 
         private void btn_d_waketurb_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 3;
+            this.s.twrEvents["turbulence"]++;
         }
 
         private void btn_d_appclearance_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 3;
+            this.s.appEvents["clearance"]++;
         }
 
         private void btn_d_mva_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 5;
+            this.s.appEvents["mva"]++;
         }
 
         private void btn_d_loasop_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 2;
+            this.s.appEvents["sop"]++;
         }
 
         private void btn_d_fix_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 2;
+            this.s.appEvents["fix"]++;
         }
 
         private void btn_d_slow_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 2;
+            this.s.genEvents["slow"]++;
         }
 
         private void btn_d_separation_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 3;
+            this.s.genEvents["separation"]++;
         }
 
         private void btn_d_phraseology_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 2;
+            this.s.genEvents["phraseology"]++;
         }
 
         private void btn_d_nearincident_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 4;
+            this.s.genEvents["near"]++;
         }
 
         private void btn_d_incident_Click(object sender, EventArgs e)
         {
-            this.s.addMarkdown();
-            this.updateMarkdowns();
-            this.s.negPoints += 6;
+            this.s.genEvents["incident"]++;
         }
 
         private void btn_u_flow_Click(object sender, EventArgs e)
         {
-            this.s.addMarkup();
-            this.updateMarkups();
-            this.s.posPoints += 2;
+            this.s.posEvents["flow"]++;
         }
 
         private void btn_u_situational_Click(object sender, EventArgs e)
         {
-            this.s.addMarkup();
-            this.updateMarkups();
-            this.s.posPoints += 4;
+            this.s.posEvents["situational"]++;
         }
 
         private void btn_u_phraseology_Click(object sender, EventArgs e)
         {
-            this.s.addMarkup();
-            this.updateMarkups();
-            this.s.posPoints += 2;
+            this.s.posEvents["phraseology"]++;
         }
 
         private void btn_u_separation_Click(object sender, EventArgs e)
         {
-            this.s.addMarkup();
-            this.updateMarkups();
-            this.s.posPoints += 3;
+            this.s.posEvents["separation"]++;
         }
 
         private void btn_u_pointouts_Click(object sender, EventArgs e)
         {
-            this.s.addMarkup();
-            this.updateMarkups();
-            this.s.posPoints += 2;
+            this.s.posEvents["pointouts"]++;
         }
 
         private void btn_u_sequence_Click(object sender, EventArgs e)
         {
-            this.s.addMarkup();
-            this.updateMarkups();
-            this.s.posPoints += 3;
+            this.s.posEvents["sequencing"]++;
         }
 
         private void cb_signonbrief_SelectedIndexChanged(object sender, EventArgs e)
@@ -396,12 +350,11 @@ namespace TrainingAssistant.views
             string s = "SOPs were reviewed.";
             if(this.chk_reviewsop.Checked)
             {
-                this.s.addReview(s);
+                this.s.reviewed.Add(s);
             }
-
             else
             {
-                this.s.removeReview(s);
+                this.s.reviewed.Remove(s);
             }
         }
 
@@ -410,12 +363,11 @@ namespace TrainingAssistant.views
             string s = "Phraseology was reviewed.";
             if(this.chk_reviewphraseology.Checked)
             {
-                this.s.addReview(s);
+                this.s.reviewed.Add(s);
             }
-
             else
             {
-                this.s.removeReview(s);
+                this.s.reviewed.Remove(s);
             }
         }
 
@@ -424,11 +376,11 @@ namespace TrainingAssistant.views
             string s = "Duty priorities were reviewed.";
             if(this.chk_reviewpriority.Checked)
             {
-                this.s.addReview(s);
+                this.s.reviewed.Add(s);
             }
             else
             {
-                this.s.removeReview(s);
+                this.s.reviewed.Remove(s);
             }
         }
 
@@ -437,11 +389,11 @@ namespace TrainingAssistant.views
             string s = "We reviewed other topics as well.";
             if(this.chk_reviewother.Checked)
             {
-                this.s.addReview(s);
+                this.s.reviewed.Add(s);
             }
             else
             {
-                this.s.removeReview(s);
+                this.s.reviewed.Remove(s);
             }
         }
 
@@ -482,12 +434,12 @@ namespace TrainingAssistant.views
 
         private void updateMarkups()
         {
-            this.lbl_markups.Text = this.s.getMarkups().ToString();
+            this.lbl_markups.Text = this.s.markups.ToString();
         }
 
         private void updateMarkdowns()
         {
-            this.lbl_markdowns.Text = this.s.getMarkdowns().ToString();
+            this.lbl_markdowns.Text = this.s.markdowns.ToString();
         }
     }
 }
