@@ -38,7 +38,7 @@ namespace TrainingAssistant.models
                 {"brief", 10},
                 {"runway", 10},
                 {"weather", 10},
-                {"coordinatin", 10},
+                {"coordination", 10},
                 {"flow", 10},
                 {"identity", 10},
                 {"separation", 10},
@@ -144,7 +144,7 @@ namespace TrainingAssistant.models
                     modifier -= 0.1;
                     break;
             }
-
+            this.posPoints = this.combos.Values.Sum();
             double n = this.negPoints * modifier;
             n += this.posPoints;
             this.score = n / 120;
