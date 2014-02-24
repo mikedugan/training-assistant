@@ -13,11 +13,29 @@ namespace TrainingAssistant.views
     public partial class training : Form
     {
         Session s { get; set; }
+        private Timer timer;
         public training()
         {
             s = new Session();
             InitializeComponent();
-            this.lbl_timer.Text = DateTime.Now.ToString();
+            this.lbl_timer.Text = "Session starting at " + DateTime.Now.ToString();
+            this.startTimer();
+        }
+
+        private void startTimer()
+        {
+            this.timer = new Timer();
+            timer.Interval = 5000;
+            this.timer.Enabled = true;
+            this.timer.Tick += new EventHandler(timer_Tick);
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            this.updateTimer();
+            this.lbl_score.Text = this.s.updateScore().ToString();
+            //this.lbl_npoints.Text = this.s.negPoints.ToString();
+           // this.lbl_ppoints.Text = this.s.posPoints.ToString();
         }
 
         private void btn_d_wafdof_Click(object sender, EventArgs e)
@@ -159,62 +177,195 @@ namespace TrainingAssistant.views
 
         private void cb_signonbrief_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_signonbrief.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["brief"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["brief"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["brief"] = 0;
+                    break;
+            }
+            
         }
 
         private void cb_rwyselection_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_rwyselection.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["runway"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["runway"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["runway"] = 0;
+                    break;
+            }
         }
 
         private void cb_weather_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_weather.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["weather"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["weather"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["weather"] = 0;
+                    break;
+            }
         }
 
         private void cb_coordination_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_coordination.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["coordination"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["coordination"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["coordination"] = 0;
+                    break;
+            }
         }
 
         private void cb_trafficflow_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_trafficflow.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["flow"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["flow"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["flow"] = 0;
+                    break;
+            }
         }
 
         private void cb_aircraftidentity_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_aircraftidentity.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["identity"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["identity"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["identity"] = 0;
+                    break;
+            }
         }
 
         private void cb_separation_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_separation.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["separation"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["separation"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["separation"] = 0;
+                    break;
+            }
         }
 
         private void cb_pointouts_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_pointouts.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["pointouts"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["pointouts"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["pointouts"] = 0;
+                    break;
+            }
         }
 
         private void cb_airspace_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_separation.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["separation"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["separation"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["separation"] = 0;
+                    break;
+            }
         }
 
         private void cb_loa_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_loa.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["loa"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["loa"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["loa"] = 0;
+                    break;
+            }
         }
 
         private void cb_phraseology_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_phraseology.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["phraseology"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["phraseology"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["phraseology"] = 0;
+                    break;
+            }
         }
 
         private void cb_dutypriority_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            switch (this.cb_dutypriority.SelectedIndex)
+            {
+                case 0:
+                    this.s.combos["priority"] = 10;
+                    break;
+                case 1:
+                    this.s.combos["priority"] = 5;
+                    break;
+                case 2:
+                    this.s.combos["priority"] = 0;
+                    break;
+            }
         }
 
         private void chk_reviewsop_CheckedChanged(object sender, EventArgs e)
@@ -298,7 +449,12 @@ namespace TrainingAssistant.views
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.s.complete();
+        }
 
+        private void updateTimer()
+        {
+            this.lbl_timer.Text = "Time Elapsed: " + this.s.getTime().ToString() + " minutes";
         }
 
         private void updateMarkups()

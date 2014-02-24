@@ -96,6 +96,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.chk_otspass = new System.Windows.Forms.CheckBox();
             this.chk_otsfail = new System.Windows.Forms.CheckBox();
+            this.lbl_score = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lbl_ppoints = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lbl_npoints = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -658,7 +663,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(304, 486);
+            this.label15.Location = new System.Drawing.Point(380, 486);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(0, 13);
             this.label15.TabIndex = 74;
@@ -754,7 +759,7 @@
             // lbl_timer
             // 
             this.lbl_timer.AutoSize = true;
-            this.lbl_timer.Location = new System.Drawing.Point(304, 487);
+            this.lbl_timer.Location = new System.Drawing.Point(380, 487);
             this.lbl_timer.Name = "lbl_timer";
             this.lbl_timer.Size = new System.Drawing.Size(0, 13);
             this.lbl_timer.TabIndex = 85;
@@ -791,11 +796,58 @@
             this.chk_otsfail.UseVisualStyleBackColor = true;
             this.chk_otsfail.CheckedChanged += new System.EventHandler(this.chk_otsfail_CheckedChanged);
             // 
+            // lbl_score
+            // 
+            this.lbl_score.AutoSize = true;
+            this.lbl_score.Location = new System.Drawing.Point(380, 512);
+            this.lbl_score.Name = "lbl_score";
+            this.lbl_score.Size = new System.Drawing.Size(0, 13);
+            this.lbl_score.TabIndex = 89;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(184, 657);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(44, 13);
+            this.label24.TabIndex = 90;
+            this.label24.Text = "ppoints:";
+            // 
+            // lbl_ppoints
+            // 
+            this.lbl_ppoints.AutoSize = true;
+            this.lbl_ppoints.Location = new System.Drawing.Point(235, 658);
+            this.lbl_ppoints.Name = "lbl_ppoints";
+            this.lbl_ppoints.Size = new System.Drawing.Size(0, 13);
+            this.lbl_ppoints.TabIndex = 91;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(318, 658);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(44, 13);
+            this.label25.TabIndex = 92;
+            this.label25.Text = "npoitns:";
+            // 
+            // lbl_npoints
+            // 
+            this.lbl_npoints.AutoSize = true;
+            this.lbl_npoints.Location = new System.Drawing.Point(366, 658);
+            this.lbl_npoints.Name = "lbl_npoints";
+            this.lbl_npoints.Size = new System.Drawing.Size(0, 13);
+            this.lbl_npoints.TabIndex = 93;
+            // 
             // training
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 683);
+            this.Controls.Add(this.lbl_npoints);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.lbl_ppoints);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.lbl_score);
             this.Controls.Add(this.chk_otsfail);
             this.Controls.Add(this.chk_otspass);
             this.Controls.Add(this.button1);
@@ -941,5 +993,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox chk_otspass;
         private System.Windows.Forms.CheckBox chk_otsfail;
+        private System.Windows.Forms.Label lbl_score;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label lbl_ppoints;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lbl_npoints;
     }
 }

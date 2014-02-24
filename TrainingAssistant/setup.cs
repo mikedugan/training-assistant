@@ -7,8 +7,6 @@ namespace TrainingAssistant
 {
     class Setup
     {
-        public DateTime startTime;
-        public DateTime finishTime;
 
         public string insName;
         public string studentName;
@@ -22,8 +20,6 @@ namespace TrainingAssistant
             this.studentInitials = sInitials;
             this.studentRating = sRating;
             this.studentTraining = sTraining;
-
-            this.startTime = DateTime.Now;
         }
 
         public bool check()

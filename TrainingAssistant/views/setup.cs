@@ -29,7 +29,7 @@ namespace TrainingAssistant.views
             //create the session in the background
             if (sesh.check())
             {
-                session_status.Text = "Session successfully created for: " + insName + " and " + studentName + " for " + studentTraining + " at " + sesh.startTime.ToString();
+                session_status.Text = "Session successfully created for: " + insName + " and " + studentName + " for " + studentTraining;
             }
             else
             {
