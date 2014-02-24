@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TrainingAssistant
 {
-    class Session
+    class Setup
     {
         public DateTime startTime;
         public DateTime finishTime;
@@ -15,7 +15,7 @@ namespace TrainingAssistant
         public string studentInitials;
         public string studentRating;
         public string studentTraining;
-        public Session(string iName, string sName, string sInitials, string sRating, string sTraining)
+        public Setup(string iName, string sName, string sInitials, string sRating, string sTraining)
         {
             this.insName = iName;
             this.studentName = sName;

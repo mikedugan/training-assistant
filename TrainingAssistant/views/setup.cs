@@ -25,7 +25,7 @@ namespace TrainingAssistant.views
             string studentInitials = student_initials.Text;
 
             //make sure all the data is correct
-            Session sesh = new Session(insName, studentName, studentInitials, studentRating, studentTraining);
+            Setup sesh = new Setup(insName, studentName, studentInitials, studentRating, studentTraining);
             //create the session in the background
             if (sesh.check())
             {
