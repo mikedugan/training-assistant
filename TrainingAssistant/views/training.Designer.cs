@@ -409,6 +409,7 @@
             this.cb_signonbrief.Size = new System.Drawing.Size(121, 21);
             this.cb_signonbrief.TabIndex = 50;
             this.cb_signonbrief.SelectedIndexChanged += new System.EventHandler(this.cb_signonbrief_SelectedIndexChanged);
+            this.cb_signonbrief.SelectedIndex = 0;
             // 
             // cb_rwyselection
             // 
@@ -422,6 +423,7 @@
             this.cb_rwyselection.Size = new System.Drawing.Size(121, 21);
             this.cb_rwyselection.TabIndex = 51;
             this.cb_rwyselection.SelectedIndexChanged += new System.EventHandler(this.cb_rwyselection_SelectedIndexChanged);
+            this.cb_rwyselection.SelectedIndex = 0;
             // 
             // cb_weather
             // 
@@ -435,6 +437,7 @@
             this.cb_weather.Size = new System.Drawing.Size(121, 21);
             this.cb_weather.TabIndex = 52;
             this.cb_weather.SelectedIndexChanged += new System.EventHandler(this.cb_weather_SelectedIndexChanged);
+            this.cb_weather.SelectedIndex = 0;
             // 
             // cb_airspace
             // 
@@ -448,6 +451,7 @@
             this.cb_airspace.Size = new System.Drawing.Size(121, 21);
             this.cb_airspace.TabIndex = 53;
             this.cb_airspace.SelectedIndexChanged += new System.EventHandler(this.cb_airspace_SelectedIndexChanged);
+            this.cb_airspace.SelectedIndex = 0;
             // 
             // cb_pointouts
             // 
@@ -461,6 +465,7 @@
             this.cb_pointouts.Size = new System.Drawing.Size(121, 21);
             this.cb_pointouts.TabIndex = 54;
             this.cb_pointouts.SelectedIndexChanged += new System.EventHandler(this.cb_pointouts_SelectedIndexChanged);
+            this.cb_pointouts.SelectedIndex = 0;
             // 
             // cb_separation
             // 
@@ -474,6 +479,7 @@
             this.cb_separation.Size = new System.Drawing.Size(121, 21);
             this.cb_separation.TabIndex = 55;
             this.cb_separation.SelectedIndexChanged += new System.EventHandler(this.cb_separation_SelectedIndexChanged);
+            this.cb_separation.SelectedIndex = 0;
             // 
             // cb_aircraftidentity
             // 
@@ -487,6 +493,7 @@
             this.cb_aircraftidentity.Size = new System.Drawing.Size(121, 21);
             this.cb_aircraftidentity.TabIndex = 56;
             this.cb_aircraftidentity.SelectedIndexChanged += new System.EventHandler(this.cb_aircraftidentity_SelectedIndexChanged);
+            this.cb_aircraftidentity.SelectedIndex = 0;
             // 
             // cb_trafficflow
             // 
@@ -500,6 +507,7 @@
             this.cb_trafficflow.Size = new System.Drawing.Size(121, 21);
             this.cb_trafficflow.TabIndex = 57;
             this.cb_trafficflow.SelectedIndexChanged += new System.EventHandler(this.cb_trafficflow_SelectedIndexChanged);
+            this.cb_trafficflow.SelectedIndex = 0;
             // 
             // cb_coordination
             // 
@@ -513,6 +521,7 @@
             this.cb_coordination.Size = new System.Drawing.Size(121, 21);
             this.cb_coordination.TabIndex = 58;
             this.cb_coordination.SelectedIndexChanged += new System.EventHandler(this.cb_coordination_SelectedIndexChanged);
+            this.cb_coordination.SelectedIndex = 0;
             // 
             // cb_loa
             // 
@@ -526,6 +535,7 @@
             this.cb_loa.Size = new System.Drawing.Size(121, 21);
             this.cb_loa.TabIndex = 59;
             this.cb_loa.SelectedIndexChanged += new System.EventHandler(this.cb_loa_SelectedIndexChanged);
+            this.cb_loa.SelectedIndex = 0;
             // 
             // cb_phraseology
             // 
@@ -539,6 +549,7 @@
             this.cb_phraseology.Size = new System.Drawing.Size(121, 21);
             this.cb_phraseology.TabIndex = 60;
             this.cb_phraseology.SelectedIndexChanged += new System.EventHandler(this.cb_phraseology_SelectedIndexChanged);
+            this.cb_phraseology.SelectedIndex = 0;
             // 
             // cb_dutypriority
             // 
@@ -552,6 +563,7 @@
             this.cb_dutypriority.Size = new System.Drawing.Size(121, 21);
             this.cb_dutypriority.TabIndex = 61;
             this.cb_dutypriority.SelectedIndexChanged += new System.EventHandler(this.cb_dutypriority_SelectedIndexChanged);
+            this.cb_dutypriority.SelectedIndex = 0;
             // 
             // btn_u_sequence
             // 
@@ -909,6 +921,7 @@
             this.cb_lvl_weather.Size = new System.Drawing.Size(131, 21);
             this.cb_lvl_weather.TabIndex = 99;
             this.cb_lvl_weather.SelectedIndexChanged += new System.EventHandler(this.cb_lvl_weather_SelectedIndexChanged);
+            this.cb_lvl_weather.SelectedIndex = 0;
             // 
             // cb_lvl_complexity
             // 
@@ -924,6 +937,7 @@
             this.cb_lvl_complexity.Size = new System.Drawing.Size(131, 21);
             this.cb_lvl_complexity.TabIndex = 100;
             this.cb_lvl_complexity.SelectedIndexChanged += new System.EventHandler(this.cb_lvl_complexity_SelectedIndexChanged);
+            this.cb_lvl_complexity.SelectedIndex = 0;
             // 
             // cb_lvl_traffic
             // 
@@ -937,6 +951,7 @@
             this.cb_lvl_traffic.Size = new System.Drawing.Size(131, 21);
             this.cb_lvl_traffic.TabIndex = 101;
             this.cb_lvl_traffic.SelectedIndexChanged += new System.EventHandler(this.cb_lvl_traffic_SelectedIndexChanged);
+            this.cb_lvl_traffic.SelectedIndex = 0;
             // 
             // label29
             // 

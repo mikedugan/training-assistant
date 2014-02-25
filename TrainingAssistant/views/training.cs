@@ -43,7 +43,7 @@ namespace TrainingAssistant.views
             this.lbl_score.Text = (this.s.updateScore() * 100).ToString() + "%";
             this.lbl_npoints.Text = this.s.negPoints.ToString();
             this.lbl_ppoints.Text = this.s.posPoints.ToString();
-            if (this.s.checkFail()) { this.lbl_fail.Text = "Pass"; } else this.lbl_fail.Text = "Fail";
+            if (this.s.checkFail()) { this.lbl_fail.Text = "Fail"; } else this.lbl_fail.Text = "Pass";
         }
 
         private void setup_page()
@@ -300,7 +300,7 @@ namespace TrainingAssistant.views
 
         private void cb_airspace_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (this.cb_separation.SelectedIndex)
+            switch (this.cb_airspace.SelectedIndex)
             {
                 case 0:
                     this.s.combos["airspace"] = 10;

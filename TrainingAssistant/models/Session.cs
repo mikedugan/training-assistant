@@ -41,6 +41,7 @@ namespace TrainingAssistant.models
             this.weather = WeatherConditions.vfr;
             this.posPoints = 120;
             this.modifier = 1;
+            this.reviewed = new List<string>();
             this.combos = new Dictionary<string, int>()
             {
                 {"brief", 10},
@@ -157,7 +158,7 @@ namespace TrainingAssistant.models
 
         public bool checkFail()
         {
-            if (this.score < 75) { return true; }
+            if (this.score < 0.75) { return true; }
             if (this.twrEvents["luaw"] > 3) { return true; }
             if (this.appEvents["mva"] > 3) { return true; }
             if (this.genEvents["separation"] > 3) { return true; }

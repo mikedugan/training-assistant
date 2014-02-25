@@ -25,6 +25,7 @@ namespace TrainingAssistant
 
         public bool check()
         {
+            //ratings1 = rating ratings2 = training for
             this.errors = new List<string>();
             if (this.instructor[0] == null || this.instructor[0] == "") { this.errors.Add("Please add instructor's first name.\r\n"); }
             if (this.instructor[1] == null || this.instructor[1] == "") { this.errors.Add("Please add instructor's last name.\r\n"); }
@@ -32,9 +33,11 @@ namespace TrainingAssistant
             if (this.student[0] == null || this.student[0] == "") { this.errors.Add("Please add student's first name.\r\n"); }
             if (this.student[1] == null || this.student[1] == "") { this.errors.Add("Please add student's last name.\r\n"); }
             if (this.student[2].Length != 2) { this.errors.Add("Invalid student controller initials.\r\n"); }
-            if (this.ratings[0] == 0) { this.errors.Add("Please select the student's rating.\r\n"); }
-            if (this.ratings[1] == 0) { this.errors.Add("Please select the training type.\r\n"); }
-            if (this.ratings[1] > this.ratings[0]) { this.errors.Add("Student already rated for this position!\r\n");}
+            /*if (this.ratings[0] == null) { this.errors.Add("Please select the student's rating.\r\n"); }
+            if (this.ratings[1] == null) { this.errors.Add("Please select the training type.\r\n"); }*/
+            if (this.ratings[0] == 0 && this.ratings[1] > 0) { this.errors.Add("Observer cannot train above C/D ground.\r\n");}
+            if (this.ratings[0] == 1 && this.ratings[1] > 5) { this.errors.Add("S1 cannot train above class B tower."); }
+            if (this.ratings[0] == 2 && this.ratings[1] > 8) { this.errors.Add("S2 cannot train for center."); }
             return this.errors.Count == 0;
         }
     }

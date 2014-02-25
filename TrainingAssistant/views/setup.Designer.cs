@@ -182,7 +182,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 19);
-            this.label3.TabIndex = 27;
+            this.label3.TabIndex = 26;
             this.label3.Text = "Rating";
             // 
             // label2
@@ -193,7 +193,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 19);
-            this.label2.TabIndex = 26;
+            this.label2.TabIndex = 27;
             this.label2.Text = "Last Name";
             // 
             // student_lbl_fname
@@ -227,6 +227,7 @@
             this.student_training.Name = "student_training";
             this.student_training.Size = new System.Drawing.Size(140, 21);
             this.student_training.TabIndex = 24;
+            this.student_training.SelectedIndex = 0;
             // 
             // student_rating
             // 
@@ -242,6 +243,7 @@
             this.student_rating.Name = "student_rating";
             this.student_rating.Size = new System.Drawing.Size(140, 21);
             this.student_rating.TabIndex = 23;
+            this.student_rating.SelectedIndex = 0;
             // 
             // student_lname
             // 
