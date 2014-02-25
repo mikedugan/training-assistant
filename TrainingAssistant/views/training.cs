@@ -14,10 +14,17 @@ namespace TrainingAssistant.views
     {
         Session s { get; set; }
         private Timer timer;
-        public training()
+        private string[] student;
+        private string[] ins;
+        private int[] ratings;
+        public training(string[] ins, string[] student, int[] ratings)
         {
             s = new Session();
+            this.ins = ins;
+            this.student = student;
+            this.ratings = ratings;
             InitializeComponent();
+            this.setup_page();
             this.lbl_timer.Text = "Session starting at " + DateTime.Now.ToString();
             this.startTimer();
         }
@@ -33,11 +40,19 @@ namespace TrainingAssistant.views
         private void timer_Tick(object sender, EventArgs e)
         {
             this.updateTimer();
-            this.lbl_score.Text = Math.Round((this.s.updateScore() * 100), 2) + "%";
+            this.lbl_score.Text = (this.s.updateScore() * 100).ToString() + "%";
             this.lbl_npoints.Text = this.s.negPoints.ToString();
             this.lbl_ppoints.Text = this.s.posPoints.ToString();
+            if (this.s.checkFail()) { this.lbl_fail.Text = "Pass"; } else this.lbl_fail.Text = "Fail";
         }
 
+        private void setup_page()
+        {
+            this.lbl_iname.Text = Helpers.ToUppercase(this.ins[0]) + ' ' + Helpers.ToUppercase(this.ins[1]) + "(" + this.ins[2].ToUpper() + ")";
+            this.lbl_sname.Text = Helpers.ToUppercase(this.student[0]) + ' ' + Helpers.ToUppercase(this.student[1]) + "(" + this.student[2].ToUpper() + ")";
+        }
+
+        #region click handlers
         private void btn_d_wafdof_Click(object sender, EventArgs e)
         {
             this.s.gndEvents["wafdof"]++;
@@ -79,7 +94,7 @@ namespace TrainingAssistant.views
 
         private void btn_d_appclearance_Click(object sender, EventArgs e)
         {
-            this.s.appEvents["clearance"]++;
+            this.s.appEvents["clnc"]++;
         }
 
         private void btn_d_mva_Click(object sender, EventArgs e)
@@ -151,7 +166,9 @@ namespace TrainingAssistant.views
         {
             this.s.posEvents["sequencing"]++;
         }
+        #endregion
 
+        #region cb handlers
         private void cb_signonbrief_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (this.cb_signonbrief.SelectedIndex)
@@ -344,7 +361,9 @@ namespace TrainingAssistant.views
                     break;
             }
         }
+        #endregion
 
+        #region chk handlers
         private void chk_reviewsop_CheckedChanged(object sender, EventArgs e)
         {
             string s = "SOPs were reviewed.";
@@ -421,6 +440,7 @@ namespace TrainingAssistant.views
                 this.s.otsFail = false;
             }
         }
+        #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -440,6 +460,59 @@ namespace TrainingAssistant.views
         private void updateMarkdowns()
         {
             this.lbl_markdowns.Text = this.s.markdowns.ToString();
+        }
+
+        private void cb_lvl_weather_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(this.cb_lvl_weather.SelectedIndex) {
+                case 0:
+                    this.s.weather = Session.WeatherConditions.vfr;
+                    break;
+                case 1:
+                    this.s.weather = Session.WeatherConditions.mvfr;
+                    break;
+                case 3:
+                    this.s.weather = Session.WeatherConditions.ifr;
+                    break;
+            }
+        }
+
+        private void cb_lvl_complexity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (this.cb_lvl_complexity.SelectedIndex)
+            {
+                case 0:
+                    this.s.complexity = Session.ComplexityLevel.very_easy;
+                    break;
+                case 1:
+                    this.s.complexity = Session.ComplexityLevel.easy;
+                    break;
+                case 2:
+                    this.s.complexity = Session.ComplexityLevel.moderate;
+                    break;
+                case 3:
+                    this.s.complexity = Session.ComplexityLevel.hard;
+                    break;
+                case 4:
+                    this.s.complexity = Session.ComplexityLevel.very_hard;
+                    break;
+            }
+        }
+
+        private void cb_lvl_traffic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (this.cb_lvl_traffic.SelectedIndex)
+            {
+                case 0:
+                    this.s.traffic = Session.TrafficLevel.light;
+                    break;
+                case 1:
+                    this.s.traffic = Session.TrafficLevel.moderate;
+                    break;
+                case 2:
+                    this.s.traffic = Session.TrafficLevel.heavy;
+                    break;
+            }
         }
     }
 }

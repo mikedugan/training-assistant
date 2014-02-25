@@ -49,6 +49,7 @@
             this.student_fname = new System.Windows.Forms.TextBox();
             this.pageTitle = new System.Windows.Forms.Label();
             this.session_status = new System.Windows.Forms.Label();
+            this.lbl_error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // session_start
@@ -277,11 +278,20 @@
             this.session_status.Size = new System.Drawing.Size(0, 13);
             this.session_status.TabIndex = 40;
             // 
+            // lbl_error
+            // 
+            this.lbl_error.AutoSize = true;
+            this.lbl_error.Location = new System.Drawing.Point(15, 418);
+            this.lbl_error.Name = "lbl_error";
+            this.lbl_error.Size = new System.Drawing.Size(0, 13);
+            this.lbl_error.TabIndex = 41;
+            // 
             // setup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 632);
+            this.Controls.Add(this.lbl_error);
             this.Controls.Add(this.session_status);
             this.Controls.Add(this.session_start);
             this.Controls.Add(this.label10);
@@ -333,5 +343,6 @@
         private System.Windows.Forms.TextBox student_fname;
         private System.Windows.Forms.Label pageTitle;
         private System.Windows.Forms.Label session_status;
+        private System.Windows.Forms.Label lbl_error;
     }
 }

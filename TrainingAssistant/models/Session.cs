@@ -7,6 +7,7 @@ namespace TrainingAssistant.models
 {
     class Session
     {
+        public List<string> errors { get; set; }
         public enum TrafficLevel { light, moderate, heavy }
         public enum ComplexityLevel { very_easy, easy, moderate, hard, very_hard}
         public enum WeatherConditions { vfr, mvfr, ifr}
@@ -30,6 +31,7 @@ namespace TrainingAssistant.models
         public Dictionary<string, int> appEvents { get; set; }
         public Dictionary<string, int> genEvents { get; set; }
         public Dictionary<string, int> posEvents { get; set; }
+        public double modifier { get; set; }
 
         public Session()
         {
@@ -38,6 +40,7 @@ namespace TrainingAssistant.models
             this.traffic = TrafficLevel.light;
             this.weather = WeatherConditions.vfr;
             this.posPoints = 120;
+            this.modifier = 1;
             this.combos = new Dictionary<string, int>()
             {
                 {"brief", 10},
@@ -107,7 +110,6 @@ namespace TrainingAssistant.models
 
         public double updateScore()
         {
-            double modifier = 1;
             switch (this.complexity) 
             {
                 case ComplexityLevel.easy:
@@ -115,13 +117,13 @@ namespace TrainingAssistant.models
                 case ComplexityLevel.very_easy:
                     break;
                 case ComplexityLevel.moderate:
-                    modifier -= 0.05;
+                    this.modifier -= 0.05;
                     break;
                 case ComplexityLevel.hard:
-                    modifier -= 0.1;
+                    this.modifier -= 0.1;
                     break;
                 case ComplexityLevel.very_hard:
-                    modifier -= 0.15;
+                    this.modifier -= 0.15;
                     break;
             }
             switch (this.weather)
@@ -129,10 +131,10 @@ namespace TrainingAssistant.models
                 case WeatherConditions.vfr:
                     break;
                 case WeatherConditions.mvfr:
-                    modifier -= 0.03;
+                    this.modifier -= 0.03;
                     break;
                 case WeatherConditions.ifr:
-                    modifier -= 0.05;
+                    this.modifier -= 0.05;
                     break;
             }
 
@@ -141,21 +143,20 @@ namespace TrainingAssistant.models
                 case TrafficLevel.light:
                     break;
                 case TrafficLevel.moderate:
-                    modifier -= 0.05;
+                    this.modifier -= 0.05;
                     break;
                 case TrafficLevel.heavy:
-                    modifier -= 0.1;
+                    this.modifier -= 0.1;
                     break;
             }
-            this.posPoints = calcPosPoints();
+            this.posPoints = calcPosPoints() + this.combos.Values.Sum();
             this.negPoints = calcNegPoints();
-            this.score = (this.posPoints - this.negPoints) / 120;
-            return this.score;
+            this.score = (this.posPoints - (this.negPoints * this.modifier)) / 120.0;
+            return this.score >= 1 ? 1 : this.score;
         }
 
         public bool checkFail()
         {
-            bool fail = false;
             if (this.score < 75) { return true; }
             if (this.twrEvents["luaw"] > 3) { return true; }
             if (this.appEvents["mva"] > 3) { return true; }
@@ -188,13 +189,13 @@ namespace TrainingAssistant.models
             n += this.twrEvents["luaw"] * 4;
             n += this.twrEvents["turbulence"] * 3;
 
-            n += this.appEvents["clearance"] * 3;
+            n += this.appEvents["clnc"] * 3;
             n += this.appEvents["mva"] * 4;
             n += this.appEvents["sop"] * 2;
             n += this.appEvents["fix"] * 2;
 
             n += this.genEvents["slow"] * 2;
-            n += this.genEvents["seperation"] * 3;
+            n += this.genEvents["separation"] * 3;
             n += this.genEvents["phraseology"] * 2;
             n += this.genEvents["near"] * 4;
             n += this.genEvents["incident"] * 6;
