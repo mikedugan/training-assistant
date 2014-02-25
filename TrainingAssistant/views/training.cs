@@ -40,7 +40,7 @@ namespace TrainingAssistant.views
         private void timer_Tick(object sender, EventArgs e)
         {
             this.updateTimer();
-            this.lbl_score.Text = (this.s.updateScore() * 100).ToString() + "%";
+            this.lbl_score.Text = (this.s.score * 100).ToString() + "%";
             this.lbl_npoints.Text = this.s.negPoints.ToString();
             this.lbl_ppoints.Text = this.s.posPoints.ToString();
             if (this.s.checkFail()) { this.lbl_fail.Text = "Fail"; } else this.lbl_fail.Text = "Pass";
