@@ -62,7 +62,8 @@ namespace TrainingAssistant.models
                 {"wafdof", 0},
                 {"squawk", 0},
                 {"clnc_late", 0},
-                {"clnc_wrong", 0}
+                {"clnc_wrong", 0},
+                {"taxi", 0}
             };
             this.twrEvents = new Dictionary<string, int>()
             {
@@ -76,7 +77,8 @@ namespace TrainingAssistant.models
                 {"clnc", 0},
                 {"mva", 0},
                 {"sop", 0},
-                {"fix", 0}
+                {"fix", 0},
+                {"final", 0}
             };
             this.genEvents = new Dictionary<string, int>()
             {
@@ -84,7 +86,9 @@ namespace TrainingAssistant.models
                 {"separation", 0},
                 {"phraseology", 0},
                 {"near", 0},
-                {"incident", 0}
+                {"incident", 0},
+                {"readback", 0},
+                {"coordination", 0}
             };
             this.posEvents = new Dictionary<string, int>()
             {
@@ -103,10 +107,21 @@ namespace TrainingAssistant.models
             return (int)DateTime.Now.Subtract(this.start).TotalMinutes;
         }
 
-        public void complete()
+        public void complete(string[] ins, string[] student, string[] ratings)
         {
+            //ins, student, ratings, time, conditions, ppoints, npoints
+            //public List<string[]> info;
+            //public List<string> reviewed;
+            //gnd,twr,app,gen,pos,combos
+            //public List<Dictionary<string, int>> events
             this.finish = DateTime.Now;
-            Report r = new Report();
+            double delta = this.finish.Subtract(this.start).TotalMinutes;
+            List<Dictionary<string, int>> e = new List<Dictionary<string, int>>();
+            e.Add(this.gndEvents); e.Add(this.twrEvents); e.Add(this.appEvents); e.Add(this.genEvents); e.Add(this.posEvents); e.Add(this.combos);
+            List<string[]> info = new List<string[]>();
+            string[] t = new string[1]; t[0] = delta.ToString();
+            info.Add(ins); info.Add(student); info.Add(ratings); info.Add(t);
+            Report r = new Report(info, this.reviewed, e);
         }
 
         public double updateScore()
@@ -184,6 +199,7 @@ namespace TrainingAssistant.models
             n += this.gndEvents["squawk"] * 2;
             n += this.gndEvents["clnc_late"] * 1;
             n += this.gndEvents["clnc_wrong"] * 2;
+            n += this.gndEvents["taxi"] * 2;
 
             n += this.twrEvents["landing"] * 2;
             n += this.twrEvents["takeoff"] * 2;
@@ -194,12 +210,15 @@ namespace TrainingAssistant.models
             n += this.appEvents["mva"] * 4;
             n += this.appEvents["sop"] * 2;
             n += this.appEvents["fix"] * 2;
+            n += this.appEvents["final"] * 2;
 
             n += this.genEvents["slow"] * 2;
             n += this.genEvents["separation"] * 3;
             n += this.genEvents["phraseology"] * 2;
             n += this.genEvents["near"] * 4;
             n += this.genEvents["incident"] * 6;
+            n += this.genEvents["coordination"] * 2;
+            n += this.genEvents["readback"] * 1;
 
             return n;
         }

@@ -88,8 +88,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.lbl_markdowns = new System.Windows.Forms.Label();
             this.lbl_markups = new System.Windows.Forms.Label();
             this.lbl_timer = new System.Windows.Forms.Label();
@@ -113,6 +111,11 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.lbl_fail = new System.Windows.Forms.Label();
+            this.btn_d_coordination = new System.Windows.Forms.Button();
+            this.btn_d_taxi = new System.Windows.Forms.Button();
+            this.btn_d_readback = new System.Windows.Forms.Button();
+            this.btn_d_final = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -409,7 +412,6 @@
             this.cb_signonbrief.Size = new System.Drawing.Size(121, 21);
             this.cb_signonbrief.TabIndex = 50;
             this.cb_signonbrief.SelectedIndexChanged += new System.EventHandler(this.cb_signonbrief_SelectedIndexChanged);
-            this.cb_signonbrief.SelectedIndex = 0;
             // 
             // cb_rwyselection
             // 
@@ -423,7 +425,6 @@
             this.cb_rwyselection.Size = new System.Drawing.Size(121, 21);
             this.cb_rwyselection.TabIndex = 51;
             this.cb_rwyselection.SelectedIndexChanged += new System.EventHandler(this.cb_rwyselection_SelectedIndexChanged);
-            this.cb_rwyselection.SelectedIndex = 0;
             // 
             // cb_weather
             // 
@@ -437,7 +438,6 @@
             this.cb_weather.Size = new System.Drawing.Size(121, 21);
             this.cb_weather.TabIndex = 52;
             this.cb_weather.SelectedIndexChanged += new System.EventHandler(this.cb_weather_SelectedIndexChanged);
-            this.cb_weather.SelectedIndex = 0;
             // 
             // cb_airspace
             // 
@@ -451,7 +451,6 @@
             this.cb_airspace.Size = new System.Drawing.Size(121, 21);
             this.cb_airspace.TabIndex = 53;
             this.cb_airspace.SelectedIndexChanged += new System.EventHandler(this.cb_airspace_SelectedIndexChanged);
-            this.cb_airspace.SelectedIndex = 0;
             // 
             // cb_pointouts
             // 
@@ -465,7 +464,6 @@
             this.cb_pointouts.Size = new System.Drawing.Size(121, 21);
             this.cb_pointouts.TabIndex = 54;
             this.cb_pointouts.SelectedIndexChanged += new System.EventHandler(this.cb_pointouts_SelectedIndexChanged);
-            this.cb_pointouts.SelectedIndex = 0;
             // 
             // cb_separation
             // 
@@ -479,7 +477,6 @@
             this.cb_separation.Size = new System.Drawing.Size(121, 21);
             this.cb_separation.TabIndex = 55;
             this.cb_separation.SelectedIndexChanged += new System.EventHandler(this.cb_separation_SelectedIndexChanged);
-            this.cb_separation.SelectedIndex = 0;
             // 
             // cb_aircraftidentity
             // 
@@ -493,7 +490,6 @@
             this.cb_aircraftidentity.Size = new System.Drawing.Size(121, 21);
             this.cb_aircraftidentity.TabIndex = 56;
             this.cb_aircraftidentity.SelectedIndexChanged += new System.EventHandler(this.cb_aircraftidentity_SelectedIndexChanged);
-            this.cb_aircraftidentity.SelectedIndex = 0;
             // 
             // cb_trafficflow
             // 
@@ -507,7 +503,6 @@
             this.cb_trafficflow.Size = new System.Drawing.Size(121, 21);
             this.cb_trafficflow.TabIndex = 57;
             this.cb_trafficflow.SelectedIndexChanged += new System.EventHandler(this.cb_trafficflow_SelectedIndexChanged);
-            this.cb_trafficflow.SelectedIndex = 0;
             // 
             // cb_coordination
             // 
@@ -521,7 +516,6 @@
             this.cb_coordination.Size = new System.Drawing.Size(121, 21);
             this.cb_coordination.TabIndex = 58;
             this.cb_coordination.SelectedIndexChanged += new System.EventHandler(this.cb_coordination_SelectedIndexChanged);
-            this.cb_coordination.SelectedIndex = 0;
             // 
             // cb_loa
             // 
@@ -535,7 +529,6 @@
             this.cb_loa.Size = new System.Drawing.Size(121, 21);
             this.cb_loa.TabIndex = 59;
             this.cb_loa.SelectedIndexChanged += new System.EventHandler(this.cb_loa_SelectedIndexChanged);
-            this.cb_loa.SelectedIndex = 0;
             // 
             // cb_phraseology
             // 
@@ -549,7 +542,6 @@
             this.cb_phraseology.Size = new System.Drawing.Size(121, 21);
             this.cb_phraseology.TabIndex = 60;
             this.cb_phraseology.SelectedIndexChanged += new System.EventHandler(this.cb_phraseology_SelectedIndexChanged);
-            this.cb_phraseology.SelectedIndex = 0;
             // 
             // cb_dutypriority
             // 
@@ -563,11 +555,10 @@
             this.cb_dutypriority.Size = new System.Drawing.Size(121, 21);
             this.cb_dutypriority.TabIndex = 61;
             this.cb_dutypriority.SelectedIndexChanged += new System.EventHandler(this.cb_dutypriority_SelectedIndexChanged);
-            this.cb_dutypriority.SelectedIndex = 0;
             // 
             // btn_u_sequence
             // 
-            this.btn_u_sequence.Location = new System.Drawing.Point(366, 319);
+            this.btn_u_sequence.Location = new System.Drawing.Point(367, 361);
             this.btn_u_sequence.Name = "btn_u_sequence";
             this.btn_u_sequence.Size = new System.Drawing.Size(131, 23);
             this.btn_u_sequence.TabIndex = 67;
@@ -577,7 +568,7 @@
             // 
             // btn_u_phraseology
             // 
-            this.btn_u_phraseology.Location = new System.Drawing.Point(243, 319);
+            this.btn_u_phraseology.Location = new System.Drawing.Point(244, 361);
             this.btn_u_phraseology.Name = "btn_u_phraseology";
             this.btn_u_phraseology.Size = new System.Drawing.Size(117, 23);
             this.btn_u_phraseology.TabIndex = 66;
@@ -587,7 +578,7 @@
             // 
             // btn_u_pointouts
             // 
-            this.btn_u_pointouts.Location = new System.Drawing.Point(366, 290);
+            this.btn_u_pointouts.Location = new System.Drawing.Point(367, 332);
             this.btn_u_pointouts.Name = "btn_u_pointouts";
             this.btn_u_pointouts.Size = new System.Drawing.Size(131, 23);
             this.btn_u_pointouts.TabIndex = 65;
@@ -597,7 +588,7 @@
             // 
             // btn_u_situational
             // 
-            this.btn_u_situational.Location = new System.Drawing.Point(366, 261);
+            this.btn_u_situational.Location = new System.Drawing.Point(367, 303);
             this.btn_u_situational.Name = "btn_u_situational";
             this.btn_u_situational.Size = new System.Drawing.Size(132, 23);
             this.btn_u_situational.TabIndex = 64;
@@ -607,7 +598,7 @@
             // 
             // btn_u_separation
             // 
-            this.btn_u_separation.Location = new System.Drawing.Point(243, 290);
+            this.btn_u_separation.Location = new System.Drawing.Point(244, 332);
             this.btn_u_separation.Name = "btn_u_separation";
             this.btn_u_separation.Size = new System.Drawing.Size(117, 23);
             this.btn_u_separation.TabIndex = 63;
@@ -617,7 +608,7 @@
             // 
             // btn_u_flow
             // 
-            this.btn_u_flow.Location = new System.Drawing.Point(243, 261);
+            this.btn_u_flow.Location = new System.Drawing.Point(244, 303);
             this.btn_u_flow.Name = "btn_u_flow";
             this.btn_u_flow.Size = new System.Drawing.Size(117, 23);
             this.btn_u_flow.TabIndex = 62;
@@ -627,7 +618,7 @@
             // 
             // btn_d_nearincident
             // 
-            this.btn_d_nearincident.Location = new System.Drawing.Point(503, 336);
+            this.btn_d_nearincident.Location = new System.Drawing.Point(504, 390);
             this.btn_d_nearincident.Name = "btn_d_nearincident";
             this.btn_d_nearincident.Size = new System.Drawing.Size(132, 23);
             this.btn_d_nearincident.TabIndex = 70;
@@ -637,7 +628,7 @@
             // 
             // btn_d_phraseology
             // 
-            this.btn_d_phraseology.Location = new System.Drawing.Point(503, 307);
+            this.btn_d_phraseology.Location = new System.Drawing.Point(504, 361);
             this.btn_d_phraseology.Name = "btn_d_phraseology";
             this.btn_d_phraseology.Size = new System.Drawing.Size(132, 23);
             this.btn_d_phraseology.TabIndex = 69;
@@ -647,7 +638,7 @@
             // 
             // btn_d_separation
             // 
-            this.btn_d_separation.Location = new System.Drawing.Point(503, 278);
+            this.btn_d_separation.Location = new System.Drawing.Point(504, 332);
             this.btn_d_separation.Name = "btn_d_separation";
             this.btn_d_separation.Size = new System.Drawing.Size(132, 23);
             this.btn_d_separation.TabIndex = 68;
@@ -657,7 +648,7 @@
             // 
             // btn_d_incident
             // 
-            this.btn_d_incident.Location = new System.Drawing.Point(503, 365);
+            this.btn_d_incident.Location = new System.Drawing.Point(504, 419);
             this.btn_d_incident.Name = "btn_d_incident";
             this.btn_d_incident.Size = new System.Drawing.Size(132, 23);
             this.btn_d_incident.TabIndex = 71;
@@ -667,7 +658,7 @@
             // 
             // btn_d_slow
             // 
-            this.btn_d_slow.Location = new System.Drawing.Point(503, 249);
+            this.btn_d_slow.Location = new System.Drawing.Point(504, 303);
             this.btn_d_slow.Name = "btn_d_slow";
             this.btn_d_slow.Size = new System.Drawing.Size(132, 23);
             this.btn_d_slow.TabIndex = 72;
@@ -678,9 +669,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Calibri", 10F);
             this.label14.Location = new System.Drawing.Point(261, 487);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(36, 13);
+            this.label14.Size = new System.Drawing.Size(45, 17);
             this.label14.TabIndex = 73;
             this.label14.Text = "Timer:";
             // 
@@ -695,18 +687,20 @@
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Calibri", 10F);
             this.label16.Location = new System.Drawing.Point(261, 512);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(72, 13);
+            this.label16.Size = new System.Drawing.Size(85, 17);
             this.label16.TabIndex = 75;
             this.label16.Text = "Current Score";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(258, 538);
+            this.label17.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label17.Location = new System.Drawing.Point(258, 537);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(117, 13);
+            this.label17.Size = new System.Drawing.Size(134, 17);
             this.label17.TabIndex = 76;
             this.label17.Text = "Recommend Pass/Fail:";
             // 
@@ -746,24 +740,6 @@
             this.label21.Size = new System.Drawing.Size(41, 13);
             this.label21.TabIndex = 80;
             this.label21.Text = "Tracon";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(261, 570);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(56, 13);
-            this.label22.TabIndex = 81;
-            this.label22.Text = "Mark Ups:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(261, 594);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(70, 13);
-            this.label23.TabIndex = 82;
-            this.label23.Text = "Mark Downs:";
             // 
             // lbl_markdowns
             // 
@@ -867,7 +843,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 12F);
-            this.label26.Location = new System.Drawing.Point(333, 241);
+            this.label26.Location = new System.Drawing.Point(334, 283);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(71, 19);
             this.label26.TabIndex = 94;
@@ -916,12 +892,11 @@
             "VFR",
             "MVFR",
             "IFR"});
-            this.cb_lvl_weather.Location = new System.Drawing.Point(366, 365);
+            this.cb_lvl_weather.Location = new System.Drawing.Point(338, 408);
             this.cb_lvl_weather.Name = "cb_lvl_weather";
             this.cb_lvl_weather.Size = new System.Drawing.Size(131, 21);
             this.cb_lvl_weather.TabIndex = 99;
             this.cb_lvl_weather.SelectedIndexChanged += new System.EventHandler(this.cb_lvl_weather_SelectedIndexChanged);
-            this.cb_lvl_weather.SelectedIndex = 0;
             // 
             // cb_lvl_complexity
             // 
@@ -932,12 +907,11 @@
             "Moderate",
             "Hard",
             "Very Hard"});
-            this.cb_lvl_complexity.Location = new System.Drawing.Point(366, 392);
+            this.cb_lvl_complexity.Location = new System.Drawing.Point(338, 435);
             this.cb_lvl_complexity.Name = "cb_lvl_complexity";
             this.cb_lvl_complexity.Size = new System.Drawing.Size(131, 21);
             this.cb_lvl_complexity.TabIndex = 100;
             this.cb_lvl_complexity.SelectedIndexChanged += new System.EventHandler(this.cb_lvl_complexity_SelectedIndexChanged);
-            this.cb_lvl_complexity.SelectedIndex = 0;
             // 
             // cb_lvl_traffic
             // 
@@ -946,37 +920,39 @@
             "Light",
             "Moderate",
             "Heavy"});
-            this.cb_lvl_traffic.Location = new System.Drawing.Point(366, 419);
+            this.cb_lvl_traffic.Location = new System.Drawing.Point(338, 462);
             this.cb_lvl_traffic.Name = "cb_lvl_traffic";
             this.cb_lvl_traffic.Size = new System.Drawing.Size(131, 21);
             this.cb_lvl_traffic.TabIndex = 101;
             this.cb_lvl_traffic.SelectedIndexChanged += new System.EventHandler(this.cb_lvl_traffic_SelectedIndexChanged);
-            this.cb_lvl_traffic.SelectedIndex = 0;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(286, 370);
+            this.label29.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label29.Location = new System.Drawing.Point(275, 411);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(48, 13);
+            this.label29.Size = new System.Drawing.Size(57, 17);
             this.label29.TabIndex = 102;
             this.label29.Text = "Weather";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(286, 396);
+            this.label30.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label30.Location = new System.Drawing.Point(264, 437);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(57, 13);
+            this.label30.Size = new System.Drawing.Size(70, 17);
             this.label30.TabIndex = 103;
             this.label30.Text = "Complexity";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(287, 423);
+            this.label31.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label31.Location = new System.Drawing.Point(291, 465);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(37, 13);
+            this.label31.Size = new System.Drawing.Size(43, 17);
             this.label31.TabIndex = 104;
             this.label31.Text = "Traffic";
             // 
@@ -988,11 +964,66 @@
             this.lbl_fail.Size = new System.Drawing.Size(0, 13);
             this.lbl_fail.TabIndex = 105;
             // 
+            // btn_d_coordination
+            // 
+            this.btn_d_coordination.Location = new System.Drawing.Point(503, 448);
+            this.btn_d_coordination.Name = "btn_d_coordination";
+            this.btn_d_coordination.Size = new System.Drawing.Size(132, 23);
+            this.btn_d_coordination.TabIndex = 106;
+            this.btn_d_coordination.Text = "Missed Coordination";
+            this.btn_d_coordination.UseVisualStyleBackColor = true;
+            this.btn_d_coordination.Click += new System.EventHandler(this.btn_d_coordination_Click);
+            // 
+            // btn_d_taxi
+            // 
+            this.btn_d_taxi.Location = new System.Drawing.Point(243, 245);
+            this.btn_d_taxi.Name = "btn_d_taxi";
+            this.btn_d_taxi.Size = new System.Drawing.Size(117, 23);
+            this.btn_d_taxi.TabIndex = 107;
+            this.btn_d_taxi.Text = "Invalid Taxi";
+            this.btn_d_taxi.UseVisualStyleBackColor = true;
+            this.btn_d_taxi.Click += new System.EventHandler(this.btn_d_taxi_Click);
+            // 
+            // btn_d_readback
+            // 
+            this.btn_d_readback.Location = new System.Drawing.Point(504, 477);
+            this.btn_d_readback.Name = "btn_d_readback";
+            this.btn_d_readback.Size = new System.Drawing.Size(131, 23);
+            this.btn_d_readback.TabIndex = 108;
+            this.btn_d_readback.Text = "Incorrect Readback";
+            this.btn_d_readback.UseVisualStyleBackColor = true;
+            this.btn_d_readback.Click += new System.EventHandler(this.btn_d_readback_Click);
+            // 
+            // btn_d_final
+            // 
+            this.btn_d_final.Location = new System.Drawing.Point(504, 245);
+            this.btn_d_final.Name = "btn_d_final";
+            this.btn_d_final.Size = new System.Drawing.Size(127, 23);
+            this.btn_d_final.TabIndex = 109;
+            this.btn_d_final.Text = "Late Final Vector";
+            this.btn_d_final.UseVisualStyleBackColor = true;
+            this.btn_d_final.Click += new System.EventHandler(this.btn_d_final_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Calibri", 11F);
+            this.label22.Location = new System.Drawing.Point(504, 282);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(132, 18);
+            this.label22.TabIndex = 110;
+            this.label22.Text = "General Markdowns";
+            // 
             // training
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 683);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.btn_d_final);
+            this.Controls.Add(this.btn_d_readback);
+            this.Controls.Add(this.btn_d_taxi);
+            this.Controls.Add(this.btn_d_coordination);
             this.Controls.Add(this.lbl_fail);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
@@ -1016,8 +1047,6 @@
             this.Controls.Add(this.lbl_timer);
             this.Controls.Add(this.lbl_markups);
             this.Controls.Add(this.lbl_markdowns);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
@@ -1147,8 +1176,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label lbl_markdowns;
         private System.Windows.Forms.Label lbl_markups;
         private System.Windows.Forms.Label lbl_timer;
@@ -1172,5 +1199,10 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label lbl_fail;
+        private System.Windows.Forms.Button btn_d_coordination;
+        private System.Windows.Forms.Button btn_d_taxi;
+        private System.Windows.Forms.Button btn_d_readback;
+        private System.Windows.Forms.Button btn_d_final;
+        private System.Windows.Forms.Label label22;
     }
 }

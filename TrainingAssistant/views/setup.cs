@@ -21,6 +21,7 @@ namespace TrainingAssistant.views
             string[] student = new string[3];
             string[] ins = new string[3];
             int[] ratings = new int[3];
+            string[] rateText = new string[3];
             student[0] = this.student_fname.Text;
             student[1] = this.student_lname.Text;
             student[2] = this.student_initials.Text;
@@ -29,9 +30,12 @@ namespace TrainingAssistant.views
             ins[2] = this.ins_initials.Text;
             ratings[1] = this.student_training.SelectedIndex;
             ratings[0] = this.student_rating.SelectedIndex;
+            rateText[1] = this.student_training.SelectedValue.ToString();
+            rateText[0] = this.student_rating.SelectedValue.ToString();
+
 
             //make sure all the data is correct
-            Setup sesh = new Setup(student, ins, ratings);
+            Setup sesh = new Setup(student, ins, ratings, rateText);
             //create the session in the background
             if ( ! sesh.check())
             {
@@ -45,7 +49,7 @@ namespace TrainingAssistant.views
             else
             {
             //switch to the training session screen
-            (new views.training(ins, student, ratings)).Show();
+            (new views.training(ins, student, rateText)).Show();
             this.Hide();
             }
         }

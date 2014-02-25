@@ -11,8 +11,9 @@ namespace TrainingAssistant
         public string[] student;
         public string[] instructor;
         public int[] ratings;
+        public string[] rateText;
         public List<string> errors { get; set; }
-        public Setup(string[] student, string[] instructor, int[] ratings)
+        public Setup(string[] student, string[] instructor, int[] ratings, string[] rText)
         {
             //[fname, lname, initials]
             this.student = student;
@@ -21,6 +22,7 @@ namespace TrainingAssistant
             //[rating, training, insrating]
             this.ratings = ratings;
             this.errors = new List<string>();
+            this.rateText = rText;
         }
 
         public bool check()

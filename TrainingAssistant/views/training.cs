@@ -16,8 +16,8 @@ namespace TrainingAssistant.views
         private Timer timer;
         private string[] student;
         private string[] ins;
-        private int[] ratings;
-        public training(string[] ins, string[] student, int[] ratings)
+        private string[] ratings;
+        public training(string[] ins, string[] student, string[] ratings)
         {
             s = new Session();
             this.ins = ins;
@@ -166,6 +166,26 @@ namespace TrainingAssistant.views
         {
             this.s.posEvents["sequencing"]++;
         }
+        private void btn_d_taxi_Click(object sender, EventArgs e)
+        {
+            this.s.gndEvents["taxi"]++;
+        }
+
+        private void btn_d_final_Click(object sender, EventArgs e)
+        {
+            this.s.appEvents["final"]++;
+        }
+
+        private void btn_d_coordination_Click(object sender, EventArgs e)
+        {
+            this.s.genEvents["coordination"]++;
+        }
+
+        private void btn_d_readback_Click(object sender, EventArgs e)
+        {
+            this.s.genEvents["readback"]++;
+        }
+
         #endregion
 
         #region cb handlers
@@ -444,7 +464,7 @@ namespace TrainingAssistant.views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.s.complete();
+            this.s.complete(this.ins, this.student, this.ratings);
         }
 
         private void updateTimer()
