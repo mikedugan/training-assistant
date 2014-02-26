@@ -29,7 +29,7 @@ namespace TrainingAssistant.models
 
         public string generateDatabaseComment()
         {
-            return generateDatabaseHeader() + "\r\n" + generateEventLog();
+            return generateDatabaseHeader() + "\r\n" + generateCbReview() + "\r\n" + generateEventLog();
         }
 
         public string generateStudentComment()
@@ -41,10 +41,8 @@ namespace TrainingAssistant.models
         {
             string report = generateSummary();
             report += "====Database Comment=====\r\n";
-            report += generateDatabaseHeader();
             report += generateDatabaseComment();
             report += "====Student Comment====\r\n";
-            report += generateStudentHeader();
             report += generateStudentComment();
             report += "====General Performance====\r\n";
             report += generateCbReview();
@@ -73,6 +71,7 @@ namespace TrainingAssistant.models
             string h = this.info[1][2] + ", in this session we spent " + this.info[3][0] + " minute training on " + this.info[2][1] + ".\r\n";
             generateCbReview();
             h += this.reviewItems;
+            if (this.sesh.ots == 2) { h += "\r\nCongratulations, OTS passed!"; }
             return h;
         }
 
@@ -151,11 +150,11 @@ namespace TrainingAssistant.models
                 case 5: log += "Duty priority knowledge - Need Improvement\r\n"; this.reviewItems += "duty priorities, "; break;
                 case 0: log += "Duty priority knowledge - Unsatisfactory\r\n"; this.reviewItems += "duty priorities, "; break;
             }
-
+            this.reviewItems += " check the syllabi for pointers for what to read.";
             return log + "\r\n";
         }
         
-        protected string generateSummary()
+        public string generateSummary()
         {
             string student = Helpers.ToUppercase(this.info[0][0]) + ' ' + Helpers.ToUppercase(this.info[0][1]) + "(" + this.info[0][2].ToUpper() + ")";
             string ins = Helpers.ToUppercase(this.info[1][0]) + ' ' + Helpers.ToUppercase(this.info[1][1]) + "(" + this.info[1][2].ToUpper() + ")";

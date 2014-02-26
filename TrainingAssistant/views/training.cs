@@ -45,8 +45,6 @@ namespace TrainingAssistant.views
             this.updateTimer();
             this.s.score = this.s.updateScore();
             this.lbl_score.Text = (this.s.score * 100).ToString() + "%";
-            this.lbl_npoints.Text = this.s.negPoints.ToString();
-            this.lbl_ppoints.Text = this.s.posPoints.ToString();
             if (this.s.checkFail()) { this.lbl_fail.Text = "Fail"; } else this.lbl_fail.Text = "Pass";
         }
 
@@ -557,16 +555,6 @@ namespace TrainingAssistant.views
         private void updateTimer()
         {
             this.lbl_timer.Text = "Time Elapsed: " + this.s.getTime().ToString() + " minutes";
-        }
-
-        private void updateMarkups()
-        {
-            this.lbl_markups.Text = this.s.markups.ToString();
-        }
-
-        private void updateMarkdowns()
-        {
-            this.lbl_markdowns.Text = this.s.markdowns.ToString();
         }
 
         private void cb_lvl_weather_SelectedIndexChanged(object sender, EventArgs e)

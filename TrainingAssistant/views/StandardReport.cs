@@ -16,7 +16,9 @@ namespace TrainingAssistant.views
         {
             InitializeComponent();
             this.report = report;
-            this.txt_report.Text = report.generateReport();
+            this.txt_report.Text = this.report.generateSummary();
+            this.txt_database.Text = this.report.generateDatabaseComment();
+            this.txt_student.Text = this.report.generateStudentComment();
         }
 
         private void StandardReport_Load(object sender, EventArgs e)
