@@ -16,8 +16,7 @@ namespace TrainingAssistant.models
         public int markups { get; set; }
         public int markdowns { get; set; }
         public List<string> reviewed { get; set; }
-        public bool otsPass { get; set; }
-        public bool otsFail { get; set; }
+        public int ots { get; set; }
 
         public int posPoints { get; set; }
         public int negPoints { get; set; }
@@ -41,6 +40,7 @@ namespace TrainingAssistant.models
             this.weather = WeatherConditions.vfr;
             this.posPoints = 120;
             this.modifier = 1;
+            this.ots = 0;
             this.reviewed = new List<string>();
             this.combos = new Dictionary<string, int>()
             {
@@ -109,7 +109,7 @@ namespace TrainingAssistant.models
 
         public void complete(string[] ins, string[] student, string[] ratings)
         {
-            //ins, student, ratings, time, conditions, ppoints, npoints
+            //ins, student, ratings, time, conditions
             //public List<string[]> info;
             //public List<string> reviewed;
             //gnd,twr,app,gen,pos,combos
@@ -120,7 +120,7 @@ namespace TrainingAssistant.models
             e.Add(this.gndEvents); e.Add(this.twrEvents); e.Add(this.appEvents); e.Add(this.genEvents); e.Add(this.posEvents); e.Add(this.combos);
             List<string[]> info = new List<string[]>();
             string[] t = new string[1]; t[0] = delta.ToString();
-            info.Add(ins); info.Add(student); info.Add(ratings); info.Add(t);
+            info.Add(ins); info.Add(student); info.Add(ratings); info.Add(t);  ;
             Report r = new Report(info, this.reviewed, e, this);
             (new views.StandardReport(r)).Show();
         }

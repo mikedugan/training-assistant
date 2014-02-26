@@ -167,7 +167,10 @@ namespace TrainingAssistant.models
             summary += "Total training session time: " + this.info[3][0] + " minutes";
             string pass = this.sesh.checkFail() ? "fail" : "pass";
             summary += "The total score was " + Math.Round((this.sesh.score * 100),2) + "%. The program recommend that this student " + pass + " the session.\r\n";
-            summary += "Weather: " + this.sesh.weather.ToString() + " Complexity: " + this.sesh.complexity.ToString() + " Traffic: " + this.sesh.traffic.ToString();
+            summary += "Weather: " + this.sesh.weather.ToString() + " Complexity: " + this.sesh.complexity.ToString() + " Traffic: " + this.sesh.traffic.ToString() + "\r\n";
+            if (this.sesh.ots == 0) { summary += "This session was not an OTS\r\n"; }
+            else if (this.sesh.ots == 1) { summary += "This OTS session was failed.\r\n"; }
+            else summary += "This OTS session was passed.\r\n";
             return summary;
         }
 

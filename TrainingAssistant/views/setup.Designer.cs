@@ -82,7 +82,7 @@
             this.ins_initials.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ins_initials.Name = "ins_initials";
             this.ins_initials.Size = new System.Drawing.Size(116, 20);
-            this.ins_initials.TabIndex = 37;
+            this.ins_initials.TabIndex = 28;
             // 
             // label8
             // 
@@ -112,7 +112,7 @@
             this.ins_lname.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ins_lname.Name = "ins_lname";
             this.ins_lname.Size = new System.Drawing.Size(116, 20);
-            this.ins_lname.TabIndex = 34;
+            this.ins_lname.TabIndex = 27;
             // 
             // ins_fname
             // 
@@ -120,7 +120,7 @@
             this.ins_fname.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ins_fname.Name = "ins_fname";
             this.ins_fname.Size = new System.Drawing.Size(116, 20);
-            this.ins_fname.TabIndex = 33;
+            this.ins_fname.TabIndex = 26;
             // 
             // label7
             // 
@@ -150,7 +150,7 @@
             this.student_initials.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.student_initials.Name = "student_initials";
             this.student_initials.Size = new System.Drawing.Size(116, 20);
-            this.student_initials.TabIndex = 30;
+            this.student_initials.TabIndex = 23;
             // 
             // label5
             // 
@@ -209,6 +209,7 @@
             // 
             // student_training
             // 
+            this.student_training.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.student_training.FormattingEnabled = true;
             this.student_training.Items.AddRange(new object[] {
             "S1 C/D",
@@ -226,11 +227,11 @@
             this.student_training.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.student_training.Name = "student_training";
             this.student_training.Size = new System.Drawing.Size(140, 21);
-            this.student_training.TabIndex = 24;
-            this.student_training.SelectedIndex = 0;
+            this.student_training.TabIndex = 25;
             // 
             // student_rating
             // 
+            this.student_rating.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.student_rating.FormattingEnabled = true;
             this.student_rating.Items.AddRange(new object[] {
             "Observer (O)",
@@ -242,8 +243,7 @@
             this.student_rating.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.student_rating.Name = "student_rating";
             this.student_rating.Size = new System.Drawing.Size(140, 21);
-            this.student_rating.TabIndex = 23;
-            this.student_rating.SelectedIndex = 0;
+            this.student_rating.TabIndex = 24;
             // 
             // student_lname
             // 

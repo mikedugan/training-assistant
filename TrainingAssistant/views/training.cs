@@ -61,6 +61,7 @@ namespace TrainingAssistant.views
                 this.btn_d_luaw.Enabled = false;
                 this.btn_d_waketurb.Enabled = false;
                 this.btn_d_separation.Enabled = false;
+                this.cb_separation.Enabled = false;
             }
 
             if (this.seshType < 6)
@@ -425,82 +426,127 @@ namespace TrainingAssistant.views
         #endregion
 
         #region chk handlers
-        private void chk_reviewsop_CheckedChanged(object sender, EventArgs e)
+        private void chk_r_runway_CheckedChanged(object sender, EventArgs e)
         {
-            string s = "SOPs were reviewed.";
-            if(this.chk_reviewsop.Checked)
+            string s = "Runway configuration was reviewed.";
+            if(this.chk_r_runway.Checked)
             {
                 this.s.reviewed.Add(s);
             }
-            else
-            {
-                this.s.reviewed.Remove(s);
-            }
+
+            else this.s.reviewed.Remove(s);
         }
 
-        private void chk_reviewphraseology_CheckedChanged(object sender, EventArgs e)
+        private void chk_r_weather_CheckedChanged(object sender, EventArgs e)
         {
-            string s = "Phraseology was reviewed.";
-            if(this.chk_reviewphraseology.Checked)
+            string s = "Weather conditions and applications were reviewed.";
+            if(this.chk_r_weather.Checked)
             {
                 this.s.reviewed.Add(s);
             }
-            else
-            {
-                this.s.reviewed.Remove(s);
-            }
+
+            else this.s.reviewed.Remove(s);
         }
 
-        private void chk_reviewpriority_CheckedChanged(object sender, EventArgs e)
+        private void chk_r_coordination_CheckedChanged(object sender, EventArgs e)
+        {
+            string s = "Controller coordination was reviewed.";
+            if(this.chk_r_coordination.Checked)
+            {
+                this.s.reviewed.Add(s);
+            }
+
+            else this.s.reviewed.Remove(s);
+        }
+
+        private void chk_r_flow_CheckedChanged(object sender, EventArgs e)
+        {
+            string s = "Traffic flow management was reviewed.";
+            if(this.chk_r_flow.Checked)
+            {
+                this.s.reviewed.Add(s);
+            }
+
+            else this.s.reviewed.Remove(s);
+        }
+
+        private void chk_r_identity_CheckedChanged(object sender, EventArgs e)
+        {
+            string s = "Maintaining aircraft identity was reviewed.";
+            if(this.chk_r_identity.Checked)
+            {
+                this.s.reviewed.Add(s);
+            }
+
+            else this.s.reviewed.Remove(s);
+        }
+
+        private void chk_r_separation_CheckedChanged(object sender, EventArgs e)
+        {
+            string s = "Aircraft separation requirements and methods were reviewed.";
+            if(this.chk_r_separation.Checked)
+            {
+                this.s.reviewed.Add(s);
+            }
+
+            else this.s.reviewed.Remove(s);
+        }
+
+        private void chk_r_pointouts_CheckedChanged(object sender, EventArgs e)
+        {
+            string s = "Traffic and safety pointouts were reviewed.";
+            if(this.chk_r_pointouts.Checked)
+            {
+                this.s.reviewed.Add(s);
+            }
+
+            else this.s.reviewed.Remove(s);
+        }
+
+        private void chk_r_airspace_CheckedChanged(object sender, EventArgs e)
+        {
+            string s = "General airspace knowledge was reviewed.";
+            if(chk_r_airspace.Checked)
+            {
+                this.s.reviewed.Add(s);
+            }
+
+            else this.s.reviewed.Remove(s);
+        }
+
+        private void chk_r_loa_CheckedChanged(object sender, EventArgs e)
+        {
+            string s = "LOA and SOP directives were reviewed.";
+            if(chk_r_loa.Checked)
+            {
+                this.s.reviewed.Add(s);
+            }
+
+            else this.s.reviewed.Remove(s);
+        }
+
+        private void chk_r_phraseology_CheckedChanged(object sender, EventArgs e)
+        {
+            string s = "General phraseology was reviewed";
+            if(chk_r_phraseology.Checked)
+            {
+                this.s.reviewed.Add(s);
+            }
+
+            else this.s.reviewed.Remove(s);
+        }
+
+        private void chk_r_duty_CheckedChanged(object sender, EventArgs e)
         {
             string s = "Duty priorities were reviewed.";
-            if(this.chk_reviewpriority.Checked)
+            if(chk_r_duty.Checked)
             {
                 this.s.reviewed.Add(s);
             }
-            else
-            {
-                this.s.reviewed.Remove(s);
-            }
+
+            else this.s.reviewed.Remove(s);
         }
 
-        private void chk_reviewother_CheckedChanged(object sender, EventArgs e)
-        {
-            string s = "We reviewed other topics as well.";
-            if(this.chk_reviewother.Checked)
-            {
-                this.s.reviewed.Add(s);
-            }
-            else
-            {
-                this.s.reviewed.Remove(s);
-            }
-        }
-
-        private void chk_otspass_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.chk_otspass.Checked)
-            {
-                this.s.otsPass = true;
-            }
-            else
-            {
-                this.s.otsPass = false;   
-            }
-        }
-
-        private void chk_otsfail_CheckedChanged(object sender, EventArgs e)
-        {
-            if(this.chk_otsfail.Checked)
-            {
-                this.s.otsPass = false;
-                this.s.otsFail = true;
-            }
-            else
-            {
-                this.s.otsFail = false;
-            }
-        }
         #endregion
 
         private void button1_Click(object sender, EventArgs e)
@@ -575,5 +621,37 @@ namespace TrainingAssistant.views
                     break;
             }
         }
+
+        private void training_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chk_r_brief_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void rb_pass_CheckedChanged(object sender, EventArgs e)
+        {
+            this.s.ots = 2;
+        }
+
+        private void rb_fail_CheckedChanged(object sender, EventArgs e)
+        {
+            this.s.ots = 1;
+        }
+
+        private void rb_na_CheckedChanged(object sender, EventArgs e)
+        {
+            this.s.ots = 0;
+        }
+
+
     }
 }
