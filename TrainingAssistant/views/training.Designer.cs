@@ -80,22 +80,15 @@
             this.btn_d_separation = new System.Windows.Forms.Button();
             this.btn_d_incident = new System.Windows.Forms.Button();
             this.btn_d_slow = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.lbl_markdowns = new System.Windows.Forms.Label();
-            this.lbl_markups = new System.Windows.Forms.Label();
             this.lbl_timer = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lbl_score = new System.Windows.Forms.Label();
-            this.lbl_ppoints = new System.Windows.Forms.Label();
-            this.lbl_npoints = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.lbl_sname = new System.Windows.Forms.Label();
@@ -111,7 +104,6 @@
             this.btn_d_taxi = new System.Windows.Forms.Button();
             this.btn_d_readback = new System.Windows.Forms.Button();
             this.btn_d_final = new System.Windows.Forms.Button();
-            this.label22 = new System.Windows.Forms.Label();
             this.chk_r_runway = new System.Windows.Forms.CheckBox();
             this.chk_r_loa = new System.Windows.Forms.CheckBox();
             this.chk_r_phraseology = new System.Windows.Forms.CheckBox();
@@ -130,7 +122,17 @@
             this.rb_na = new System.Windows.Forms.RadioButton();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -174,20 +176,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label2.Location = new System.Drawing.Point(111, 182);
+            this.label2.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label2.Location = new System.Drawing.Point(71, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 14);
+            this.label2.Size = new System.Drawing.Size(81, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Sign-On Brief";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label3.Location = new System.Drawing.Point(111, 225);
+            this.label3.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label3.Location = new System.Drawing.Point(67, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 14);
+            this.label3.Size = new System.Drawing.Size(107, 17);
             this.label3.TabIndex = 10;
             this.label3.Text = "Runway Selection";
             // 
@@ -195,10 +197,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Control;
-            this.label4.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label4.Location = new System.Drawing.Point(111, 265);
+            this.label4.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label4.Location = new System.Drawing.Point(67, 168);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 14);
+            this.label4.Size = new System.Drawing.Size(118, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "Weather Conditions";
             // 
@@ -206,18 +208,18 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Control;
-            this.label5.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label5.Location = new System.Drawing.Point(111, 305);
+            this.label5.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label5.Location = new System.Drawing.Point(84, 217);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 14);
+            this.label5.Size = new System.Drawing.Size(80, 17);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Controller Coordination";
+            this.label5.Text = "Coordination";
             // 
             // btn_d_squawk
             // 
             this.btn_d_squawk.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_squawk.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_squawk.Location = new System.Drawing.Point(243, 158);
+            this.btn_d_squawk.Location = new System.Drawing.Point(6, 49);
             this.btn_d_squawk.Name = "btn_d_squawk";
             this.btn_d_squawk.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_d_squawk.Size = new System.Drawing.Size(117, 23);
@@ -230,7 +232,7 @@
             // 
             this.btn_d_cddelay.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_cddelay.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_cddelay.Location = new System.Drawing.Point(243, 187);
+            this.btn_d_cddelay.Location = new System.Drawing.Point(6, 78);
             this.btn_d_cddelay.Name = "btn_d_cddelay";
             this.btn_d_cddelay.Size = new System.Drawing.Size(117, 23);
             this.btn_d_cddelay.TabIndex = 15;
@@ -242,7 +244,7 @@
             // 
             this.btn_d_cdclearance.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_cdclearance.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_cdclearance.Location = new System.Drawing.Point(243, 216);
+            this.btn_d_cdclearance.Location = new System.Drawing.Point(6, 107);
             this.btn_d_cdclearance.Name = "btn_d_cdclearance";
             this.btn_d_cdclearance.Size = new System.Drawing.Size(117, 23);
             this.btn_d_cdclearance.TabIndex = 16;
@@ -254,7 +256,7 @@
             // 
             this.btn_d_wafdof.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_wafdof.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_wafdof.Location = new System.Drawing.Point(243, 129);
+            this.btn_d_wafdof.Location = new System.Drawing.Point(6, 20);
             this.btn_d_wafdof.Name = "btn_d_wafdof";
             this.btn_d_wafdof.Size = new System.Drawing.Size(117, 23);
             this.btn_d_wafdof.TabIndex = 17;
@@ -264,9 +266,9 @@
             // 
             // btn_d_landing
             // 
-            this.btn_d_landing.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btn_d_landing.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_landing.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_landing.Location = new System.Drawing.Point(366, 128);
+            this.btn_d_landing.Location = new System.Drawing.Point(0, 20);
             this.btn_d_landing.Name = "btn_d_landing";
             this.btn_d_landing.Size = new System.Drawing.Size(132, 23);
             this.btn_d_landing.TabIndex = 24;
@@ -276,9 +278,9 @@
             // 
             // btn_d_waketurb
             // 
-            this.btn_d_waketurb.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btn_d_waketurb.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_waketurb.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_waketurb.Location = new System.Drawing.Point(366, 216);
+            this.btn_d_waketurb.Location = new System.Drawing.Point(0, 108);
             this.btn_d_waketurb.Name = "btn_d_waketurb";
             this.btn_d_waketurb.Size = new System.Drawing.Size(132, 23);
             this.btn_d_waketurb.TabIndex = 23;
@@ -288,9 +290,9 @@
             // 
             // btn_d_luaw
             // 
-            this.btn_d_luaw.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btn_d_luaw.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_luaw.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_luaw.Location = new System.Drawing.Point(366, 187);
+            this.btn_d_luaw.Location = new System.Drawing.Point(0, 79);
             this.btn_d_luaw.Name = "btn_d_luaw";
             this.btn_d_luaw.Size = new System.Drawing.Size(132, 23);
             this.btn_d_luaw.TabIndex = 22;
@@ -300,9 +302,9 @@
             // 
             // btn_d_takeoff
             // 
-            this.btn_d_takeoff.BackColor = System.Drawing.Color.NavajoWhite;
+            this.btn_d_takeoff.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_takeoff.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_takeoff.Location = new System.Drawing.Point(366, 158);
+            this.btn_d_takeoff.Location = new System.Drawing.Point(0, 50);
             this.btn_d_takeoff.Name = "btn_d_takeoff";
             this.btn_d_takeoff.Size = new System.Drawing.Size(132, 23);
             this.btn_d_takeoff.TabIndex = 21;
@@ -312,9 +314,9 @@
             // 
             // btn_d_fix
             // 
-            this.btn_d_fix.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btn_d_fix.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_fix.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_fix.Location = new System.Drawing.Point(504, 216);
+            this.btn_d_fix.Location = new System.Drawing.Point(1, 106);
             this.btn_d_fix.Name = "btn_d_fix";
             this.btn_d_fix.Size = new System.Drawing.Size(127, 23);
             this.btn_d_fix.TabIndex = 30;
@@ -324,9 +326,9 @@
             // 
             // btn_d_loasop
             // 
-            this.btn_d_loasop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btn_d_loasop.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_loasop.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_loasop.Location = new System.Drawing.Point(504, 187);
+            this.btn_d_loasop.Location = new System.Drawing.Point(1, 77);
             this.btn_d_loasop.Name = "btn_d_loasop";
             this.btn_d_loasop.Size = new System.Drawing.Size(127, 23);
             this.btn_d_loasop.TabIndex = 29;
@@ -336,9 +338,9 @@
             // 
             // btn_d_mva
             // 
-            this.btn_d_mva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btn_d_mva.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_mva.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_mva.Location = new System.Drawing.Point(504, 158);
+            this.btn_d_mva.Location = new System.Drawing.Point(1, 48);
             this.btn_d_mva.Name = "btn_d_mva";
             this.btn_d_mva.Size = new System.Drawing.Size(127, 23);
             this.btn_d_mva.TabIndex = 28;
@@ -348,9 +350,9 @@
             // 
             // btn_d_appclearance
             // 
-            this.btn_d_appclearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btn_d_appclearance.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_appclearance.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_appclearance.Location = new System.Drawing.Point(504, 129);
+            this.btn_d_appclearance.Location = new System.Drawing.Point(1, 19);
             this.btn_d_appclearance.Name = "btn_d_appclearance";
             this.btn_d_appclearance.Size = new System.Drawing.Size(127, 23);
             this.btn_d_appclearance.TabIndex = 27;
@@ -361,30 +363,31 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label6.Location = new System.Drawing.Point(111, 633);
+            this.label6.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label6.Location = new System.Drawing.Point(68, 581);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 14);
+            this.label6.Size = new System.Drawing.Size(79, 17);
             this.label6.TabIndex = 41;
             this.label6.Text = "Duty Priority";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label7.Location = new System.Drawing.Point(111, 593);
+            this.label7.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label7.Location = new System.Drawing.Point(76, 536);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 14);
+            this.label7.Size = new System.Drawing.Size(76, 17);
             this.label7.TabIndex = 40;
             this.label7.Text = "Phraseology";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label8.Location = new System.Drawing.Point(111, 553);
+            this.label8.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label8.Location = new System.Drawing.Point(70, 491);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 14);
+            this.label8.Size = new System.Drawing.Size(96, 17);
             this.label8.TabIndex = 39;
             this.label8.Text = "LOA Knowledge";
             // 
@@ -392,10 +395,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.SystemColors.Control;
-            this.label9.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label9.Location = new System.Drawing.Point(111, 510);
+            this.label9.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label9.Location = new System.Drawing.Point(72, 445);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(117, 14);
+            this.label9.Size = new System.Drawing.Size(121, 17);
             this.label9.TabIndex = 38;
             this.label9.Text = "Airspace Knowledge";
             // 
@@ -403,30 +406,30 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.SystemColors.Control;
-            this.label10.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label10.Location = new System.Drawing.Point(114, 469);
+            this.label10.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label10.Location = new System.Drawing.Point(72, 400);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 14);
+            this.label10.Size = new System.Drawing.Size(99, 17);
             this.label10.TabIndex = 49;
             this.label10.Text = "Pointouts/Alerts";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label11.Location = new System.Drawing.Point(111, 429);
+            this.label11.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label11.Location = new System.Drawing.Point(78, 355);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 14);
+            this.label11.Size = new System.Drawing.Size(69, 17);
             this.label11.TabIndex = 48;
             this.label11.Text = "Separation";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label12.Location = new System.Drawing.Point(111, 389);
+            this.label12.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label12.Location = new System.Drawing.Point(68, 310);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 14);
+            this.label12.Size = new System.Drawing.Size(98, 17);
             this.label12.TabIndex = 47;
             this.label12.Text = "Aircraft Identity";
             // 
@@ -434,10 +437,10 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.SystemColors.Control;
-            this.label13.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label13.Location = new System.Drawing.Point(111, 346);
+            this.label13.Font = new System.Drawing.Font("Calibri", 10F);
+            this.label13.Location = new System.Drawing.Point(68, 263);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(115, 14);
+            this.label13.Size = new System.Drawing.Size(120, 17);
             this.label13.TabIndex = 46;
             this.label13.Text = "Traffic Flow / Delays";
             // 
@@ -451,7 +454,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_signonbrief.Location = new System.Drawing.Point(114, 158);
+            this.cb_signonbrief.Location = new System.Drawing.Point(110, 83);
             this.cb_signonbrief.Name = "cb_signonbrief";
             this.cb_signonbrief.Size = new System.Drawing.Size(121, 22);
             this.cb_signonbrief.TabIndex = 50;
@@ -467,7 +470,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_rwyselection.Location = new System.Drawing.Point(111, 201);
+            this.cb_rwyselection.Location = new System.Drawing.Point(110, 136);
             this.cb_rwyselection.Name = "cb_rwyselection";
             this.cb_rwyselection.Size = new System.Drawing.Size(121, 22);
             this.cb_rwyselection.TabIndex = 51;
@@ -483,7 +486,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_weather.Location = new System.Drawing.Point(111, 241);
+            this.cb_weather.Location = new System.Drawing.Point(110, 188);
             this.cb_weather.Name = "cb_weather";
             this.cb_weather.Size = new System.Drawing.Size(121, 22);
             this.cb_weather.TabIndex = 52;
@@ -499,7 +502,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_airspace.Location = new System.Drawing.Point(114, 489);
+            this.cb_airspace.Location = new System.Drawing.Point(110, 466);
             this.cb_airspace.Name = "cb_airspace";
             this.cb_airspace.Size = new System.Drawing.Size(121, 22);
             this.cb_airspace.TabIndex = 53;
@@ -515,7 +518,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_pointouts.Location = new System.Drawing.Point(114, 445);
+            this.cb_pointouts.Location = new System.Drawing.Point(110, 420);
             this.cb_pointouts.Name = "cb_pointouts";
             this.cb_pointouts.Size = new System.Drawing.Size(121, 22);
             this.cb_pointouts.TabIndex = 54;
@@ -531,7 +534,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_separation.Location = new System.Drawing.Point(114, 405);
+            this.cb_separation.Location = new System.Drawing.Point(111, 375);
             this.cb_separation.Name = "cb_separation";
             this.cb_separation.Size = new System.Drawing.Size(121, 22);
             this.cb_separation.TabIndex = 55;
@@ -547,7 +550,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_aircraftidentity.Location = new System.Drawing.Point(114, 365);
+            this.cb_aircraftidentity.Location = new System.Drawing.Point(110, 330);
             this.cb_aircraftidentity.Name = "cb_aircraftidentity";
             this.cb_aircraftidentity.Size = new System.Drawing.Size(121, 22);
             this.cb_aircraftidentity.TabIndex = 56;
@@ -563,7 +566,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_trafficflow.Location = new System.Drawing.Point(114, 322);
+            this.cb_trafficflow.Location = new System.Drawing.Point(110, 283);
             this.cb_trafficflow.Name = "cb_trafficflow";
             this.cb_trafficflow.Size = new System.Drawing.Size(121, 22);
             this.cb_trafficflow.TabIndex = 57;
@@ -579,7 +582,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_coordination.Location = new System.Drawing.Point(114, 281);
+            this.cb_coordination.Location = new System.Drawing.Point(110, 237);
             this.cb_coordination.Name = "cb_coordination";
             this.cb_coordination.Size = new System.Drawing.Size(121, 22);
             this.cb_coordination.TabIndex = 58;
@@ -595,7 +598,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_loa.Location = new System.Drawing.Point(111, 529);
+            this.cb_loa.Location = new System.Drawing.Point(111, 511);
             this.cb_loa.Name = "cb_loa";
             this.cb_loa.Size = new System.Drawing.Size(121, 22);
             this.cb_loa.TabIndex = 59;
@@ -611,7 +614,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_phraseology.Location = new System.Drawing.Point(114, 569);
+            this.cb_phraseology.Location = new System.Drawing.Point(111, 556);
             this.cb_phraseology.Name = "cb_phraseology";
             this.cb_phraseology.Size = new System.Drawing.Size(121, 22);
             this.cb_phraseology.TabIndex = 60;
@@ -627,7 +630,7 @@
             "Satisfactory",
             "Needs Improvement",
             "Unsatisfactory"});
-            this.cb_dutypriority.Location = new System.Drawing.Point(114, 609);
+            this.cb_dutypriority.Location = new System.Drawing.Point(110, 601);
             this.cb_dutypriority.Name = "cb_dutypriority";
             this.cb_dutypriority.Size = new System.Drawing.Size(121, 22);
             this.cb_dutypriority.TabIndex = 61;
@@ -635,9 +638,9 @@
             // 
             // btn_u_sequence
             // 
-            this.btn_u_sequence.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_u_sequence.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_u_sequence.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_u_sequence.Location = new System.Drawing.Point(367, 361);
+            this.btn_u_sequence.Location = new System.Drawing.Point(129, 75);
             this.btn_u_sequence.Name = "btn_u_sequence";
             this.btn_u_sequence.Size = new System.Drawing.Size(131, 23);
             this.btn_u_sequence.TabIndex = 67;
@@ -647,9 +650,9 @@
             // 
             // btn_u_phraseology
             // 
-            this.btn_u_phraseology.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_u_phraseology.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_u_phraseology.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_u_phraseology.Location = new System.Drawing.Point(244, 361);
+            this.btn_u_phraseology.Location = new System.Drawing.Point(6, 75);
             this.btn_u_phraseology.Name = "btn_u_phraseology";
             this.btn_u_phraseology.Size = new System.Drawing.Size(117, 23);
             this.btn_u_phraseology.TabIndex = 66;
@@ -659,9 +662,9 @@
             // 
             // btn_u_pointouts
             // 
-            this.btn_u_pointouts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_u_pointouts.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_u_pointouts.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_u_pointouts.Location = new System.Drawing.Point(367, 332);
+            this.btn_u_pointouts.Location = new System.Drawing.Point(129, 46);
             this.btn_u_pointouts.Name = "btn_u_pointouts";
             this.btn_u_pointouts.Size = new System.Drawing.Size(131, 23);
             this.btn_u_pointouts.TabIndex = 65;
@@ -671,9 +674,9 @@
             // 
             // btn_u_situational
             // 
-            this.btn_u_situational.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_u_situational.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_u_situational.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_u_situational.Location = new System.Drawing.Point(367, 303);
+            this.btn_u_situational.Location = new System.Drawing.Point(129, 17);
             this.btn_u_situational.Name = "btn_u_situational";
             this.btn_u_situational.Size = new System.Drawing.Size(132, 23);
             this.btn_u_situational.TabIndex = 64;
@@ -683,9 +686,9 @@
             // 
             // btn_u_separation
             // 
-            this.btn_u_separation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_u_separation.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_u_separation.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_u_separation.Location = new System.Drawing.Point(244, 332);
+            this.btn_u_separation.Location = new System.Drawing.Point(6, 46);
             this.btn_u_separation.Name = "btn_u_separation";
             this.btn_u_separation.Size = new System.Drawing.Size(117, 23);
             this.btn_u_separation.TabIndex = 63;
@@ -695,9 +698,9 @@
             // 
             // btn_u_flow
             // 
-            this.btn_u_flow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_u_flow.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_u_flow.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_u_flow.Location = new System.Drawing.Point(244, 303);
+            this.btn_u_flow.Location = new System.Drawing.Point(6, 17);
             this.btn_u_flow.Name = "btn_u_flow";
             this.btn_u_flow.Size = new System.Drawing.Size(117, 23);
             this.btn_u_flow.TabIndex = 62;
@@ -707,9 +710,9 @@
             // 
             // btn_d_nearincident
             // 
-            this.btn_d_nearincident.BackColor = System.Drawing.Color.Moccasin;
+            this.btn_d_nearincident.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_nearincident.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_nearincident.Location = new System.Drawing.Point(504, 390);
+            this.btn_d_nearincident.Location = new System.Drawing.Point(-1, 106);
             this.btn_d_nearincident.Name = "btn_d_nearincident";
             this.btn_d_nearincident.Size = new System.Drawing.Size(132, 23);
             this.btn_d_nearincident.TabIndex = 70;
@@ -719,9 +722,9 @@
             // 
             // btn_d_phraseology
             // 
-            this.btn_d_phraseology.BackColor = System.Drawing.Color.Moccasin;
+            this.btn_d_phraseology.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_phraseology.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_phraseology.Location = new System.Drawing.Point(504, 361);
+            this.btn_d_phraseology.Location = new System.Drawing.Point(-1, 77);
             this.btn_d_phraseology.Name = "btn_d_phraseology";
             this.btn_d_phraseology.Size = new System.Drawing.Size(132, 23);
             this.btn_d_phraseology.TabIndex = 69;
@@ -731,9 +734,9 @@
             // 
             // btn_d_separation
             // 
-            this.btn_d_separation.BackColor = System.Drawing.Color.Moccasin;
+            this.btn_d_separation.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_separation.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_separation.Location = new System.Drawing.Point(504, 332);
+            this.btn_d_separation.Location = new System.Drawing.Point(-1, 48);
             this.btn_d_separation.Name = "btn_d_separation";
             this.btn_d_separation.Size = new System.Drawing.Size(132, 23);
             this.btn_d_separation.TabIndex = 68;
@@ -743,9 +746,9 @@
             // 
             // btn_d_incident
             // 
-            this.btn_d_incident.BackColor = System.Drawing.Color.Moccasin;
+            this.btn_d_incident.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_incident.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_incident.Location = new System.Drawing.Point(504, 419);
+            this.btn_d_incident.Location = new System.Drawing.Point(-1, 135);
             this.btn_d_incident.Name = "btn_d_incident";
             this.btn_d_incident.Size = new System.Drawing.Size(132, 23);
             this.btn_d_incident.TabIndex = 71;
@@ -755,9 +758,9 @@
             // 
             // btn_d_slow
             // 
-            this.btn_d_slow.BackColor = System.Drawing.Color.Moccasin;
+            this.btn_d_slow.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_slow.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_slow.Location = new System.Drawing.Point(504, 303);
+            this.btn_d_slow.Location = new System.Drawing.Point(-1, 19);
             this.btn_d_slow.Name = "btn_d_slow";
             this.btn_d_slow.Size = new System.Drawing.Size(132, 23);
             this.btn_d_slow.TabIndex = 72;
@@ -765,21 +768,11 @@
             this.btn_d_slow.UseVisualStyleBackColor = false;
             this.btn_d_slow.Click += new System.EventHandler(this.btn_d_slow_Click);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label14.Location = new System.Drawing.Point(293, 523);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 14);
-            this.label14.TabIndex = 73;
-            this.label14.Text = "Timer:";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label15.Location = new System.Drawing.Point(361, 526);
+            this.label15.Location = new System.Drawing.Point(300, 525);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(0, 14);
             this.label15.TabIndex = 74;
@@ -800,18 +793,18 @@
             this.label17.Font = new System.Drawing.Font("Calibri", 9F);
             this.label17.Location = new System.Drawing.Point(293, 571);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(131, 14);
+            this.label17.Size = new System.Drawing.Size(61, 14);
             this.label17.TabIndex = 76;
-            this.label17.Text = "Recommend Pass/Fail:";
+            this.label17.Text = "Pass/Fail:";
             this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Calibri", 12F);
-            this.label18.Location = new System.Drawing.Point(379, 84);
+            this.label18.Font = new System.Drawing.Font("Calibri", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label18.Location = new System.Drawing.Point(368, 86);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(90, 19);
+            this.label18.Size = new System.Drawing.Size(95, 19);
             this.label18.TabIndex = 77;
             this.label18.Text = "Mark Downs";
             // 
@@ -833,38 +826,11 @@
             this.label20.TabIndex = 79;
             this.label20.Text = "Local";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(546, 109);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(41, 13);
-            this.label21.TabIndex = 80;
-            this.label21.Text = "Tracon";
-            // 
-            // lbl_markdowns
-            // 
-            this.lbl_markdowns.AutoSize = true;
-            this.lbl_markdowns.Font = new System.Drawing.Font("Calibri", 9F);
-            this.lbl_markdowns.Location = new System.Drawing.Point(374, 600);
-            this.lbl_markdowns.Name = "lbl_markdowns";
-            this.lbl_markdowns.Size = new System.Drawing.Size(0, 14);
-            this.lbl_markdowns.TabIndex = 83;
-            // 
-            // lbl_markups
-            // 
-            this.lbl_markups.AutoSize = true;
-            this.lbl_markups.Font = new System.Drawing.Font("Calibri", 9F);
-            this.lbl_markups.Location = new System.Drawing.Point(334, 593);
-            this.lbl_markups.Name = "lbl_markups";
-            this.lbl_markups.Size = new System.Drawing.Size(0, 14);
-            this.lbl_markups.TabIndex = 84;
-            // 
             // lbl_timer
             // 
             this.lbl_timer.AutoSize = true;
             this.lbl_timer.Font = new System.Drawing.Font("Calibri", 9F);
-            this.lbl_timer.Location = new System.Drawing.Point(361, 527);
+            this.lbl_timer.Location = new System.Drawing.Point(300, 526);
             this.lbl_timer.Name = "lbl_timer";
             this.lbl_timer.Size = new System.Drawing.Size(0, 14);
             this.lbl_timer.TabIndex = 85;
@@ -884,36 +850,10 @@
             // 
             this.lbl_score.AutoSize = true;
             this.lbl_score.Font = new System.Drawing.Font("Calibri", 9F);
-            this.lbl_score.Location = new System.Drawing.Point(385, 549);
+            this.lbl_score.Location = new System.Drawing.Point(385, 544);
             this.lbl_score.Name = "lbl_score";
             this.lbl_score.Size = new System.Drawing.Size(0, 14);
             this.lbl_score.TabIndex = 89;
-            // 
-            // lbl_ppoints
-            // 
-            this.lbl_ppoints.AutoSize = true;
-            this.lbl_ppoints.Location = new System.Drawing.Point(235, 658);
-            this.lbl_ppoints.Name = "lbl_ppoints";
-            this.lbl_ppoints.Size = new System.Drawing.Size(0, 13);
-            this.lbl_ppoints.TabIndex = 91;
-            // 
-            // lbl_npoints
-            // 
-            this.lbl_npoints.AutoSize = true;
-            this.lbl_npoints.Location = new System.Drawing.Point(366, 658);
-            this.lbl_npoints.Name = "lbl_npoints";
-            this.lbl_npoints.Size = new System.Drawing.Size(0, 13);
-            this.lbl_npoints.TabIndex = 93;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label26.Location = new System.Drawing.Point(334, 283);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(58, 14);
-            this.label26.TabIndex = 94;
-            this.label26.Text = "Mark Ups";
             // 
             // label27
             // 
@@ -1036,16 +976,16 @@
             // 
             this.lbl_fail.AutoSize = true;
             this.lbl_fail.Font = new System.Drawing.Font("Calibri", 9F);
-            this.lbl_fail.Location = new System.Drawing.Point(443, 575);
+            this.lbl_fail.Location = new System.Drawing.Point(371, 569);
             this.lbl_fail.Name = "lbl_fail";
             this.lbl_fail.Size = new System.Drawing.Size(0, 14);
             this.lbl_fail.TabIndex = 105;
             // 
             // btn_d_coordination
             // 
-            this.btn_d_coordination.BackColor = System.Drawing.Color.Moccasin;
+            this.btn_d_coordination.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_coordination.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_coordination.Location = new System.Drawing.Point(503, 448);
+            this.btn_d_coordination.Location = new System.Drawing.Point(0, 164);
             this.btn_d_coordination.Name = "btn_d_coordination";
             this.btn_d_coordination.Size = new System.Drawing.Size(132, 23);
             this.btn_d_coordination.TabIndex = 106;
@@ -1057,7 +997,7 @@
             // 
             this.btn_d_taxi.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_taxi.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_taxi.Location = new System.Drawing.Point(243, 245);
+            this.btn_d_taxi.Location = new System.Drawing.Point(6, 136);
             this.btn_d_taxi.Name = "btn_d_taxi";
             this.btn_d_taxi.Size = new System.Drawing.Size(117, 23);
             this.btn_d_taxi.TabIndex = 107;
@@ -1067,9 +1007,9 @@
             // 
             // btn_d_readback
             // 
-            this.btn_d_readback.BackColor = System.Drawing.Color.Moccasin;
+            this.btn_d_readback.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_readback.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_readback.Location = new System.Drawing.Point(504, 477);
+            this.btn_d_readback.Location = new System.Drawing.Point(-1, 193);
             this.btn_d_readback.Name = "btn_d_readback";
             this.btn_d_readback.Size = new System.Drawing.Size(131, 23);
             this.btn_d_readback.TabIndex = 108;
@@ -1079,9 +1019,9 @@
             // 
             // btn_d_final
             // 
-            this.btn_d_final.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btn_d_final.BackColor = System.Drawing.Color.PapayaWhip;
             this.btn_d_final.Font = new System.Drawing.Font("Calibri", 9F);
-            this.btn_d_final.Location = new System.Drawing.Point(504, 245);
+            this.btn_d_final.Location = new System.Drawing.Point(1, 135);
             this.btn_d_final.Name = "btn_d_final";
             this.btn_d_final.Size = new System.Drawing.Size(127, 23);
             this.btn_d_final.TabIndex = 109;
@@ -1089,21 +1029,11 @@
             this.btn_d_final.UseVisualStyleBackColor = false;
             this.btn_d_final.Click += new System.EventHandler(this.btn_d_final_Click);
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label22.Location = new System.Drawing.Point(504, 282);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(117, 14);
-            this.label22.TabIndex = 110;
-            this.label22.Text = "General Markdowns";
-            // 
             // chk_r_runway
             // 
             this.chk_r_runway.AutoSize = true;
             this.chk_r_runway.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_runway.Location = new System.Drawing.Point(28, 204);
+            this.chk_r_runway.Location = new System.Drawing.Point(27, 139);
             this.chk_r_runway.Name = "chk_r_runway";
             this.chk_r_runway.Size = new System.Drawing.Size(79, 18);
             this.chk_r_runway.TabIndex = 111;
@@ -1115,7 +1045,7 @@
             // 
             this.chk_r_loa.AutoSize = true;
             this.chk_r_loa.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_loa.Location = new System.Drawing.Point(28, 532);
+            this.chk_r_loa.Location = new System.Drawing.Point(28, 514);
             this.chk_r_loa.Name = "chk_r_loa";
             this.chk_r_loa.Size = new System.Drawing.Size(79, 18);
             this.chk_r_loa.TabIndex = 112;
@@ -1127,7 +1057,7 @@
             // 
             this.chk_r_phraseology.AutoSize = true;
             this.chk_r_phraseology.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_phraseology.Location = new System.Drawing.Point(28, 572);
+            this.chk_r_phraseology.Location = new System.Drawing.Point(29, 559);
             this.chk_r_phraseology.Name = "chk_r_phraseology";
             this.chk_r_phraseology.Size = new System.Drawing.Size(79, 18);
             this.chk_r_phraseology.TabIndex = 113;
@@ -1139,7 +1069,7 @@
             // 
             this.chk_r_duty.AutoSize = true;
             this.chk_r_duty.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_duty.Location = new System.Drawing.Point(28, 612);
+            this.chk_r_duty.Location = new System.Drawing.Point(28, 604);
             this.chk_r_duty.Name = "chk_r_duty";
             this.chk_r_duty.Size = new System.Drawing.Size(79, 18);
             this.chk_r_duty.TabIndex = 114;
@@ -1151,7 +1081,7 @@
             // 
             this.chk_r_pointouts.AutoSize = true;
             this.chk_r_pointouts.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_pointouts.Location = new System.Drawing.Point(28, 448);
+            this.chk_r_pointouts.Location = new System.Drawing.Point(28, 423);
             this.chk_r_pointouts.Name = "chk_r_pointouts";
             this.chk_r_pointouts.Size = new System.Drawing.Size(79, 18);
             this.chk_r_pointouts.TabIndex = 115;
@@ -1163,7 +1093,7 @@
             // 
             this.chk_r_airspace.AutoSize = true;
             this.chk_r_airspace.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_airspace.Location = new System.Drawing.Point(28, 492);
+            this.chk_r_airspace.Location = new System.Drawing.Point(28, 469);
             this.chk_r_airspace.Name = "chk_r_airspace";
             this.chk_r_airspace.Size = new System.Drawing.Size(79, 18);
             this.chk_r_airspace.TabIndex = 116;
@@ -1175,7 +1105,7 @@
             // 
             this.chk_r_identity.AutoSize = true;
             this.chk_r_identity.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_identity.Location = new System.Drawing.Point(28, 368);
+            this.chk_r_identity.Location = new System.Drawing.Point(28, 333);
             this.chk_r_identity.Name = "chk_r_identity";
             this.chk_r_identity.Size = new System.Drawing.Size(79, 18);
             this.chk_r_identity.TabIndex = 117;
@@ -1187,7 +1117,7 @@
             // 
             this.chk_r_separation.AutoSize = true;
             this.chk_r_separation.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_separation.Location = new System.Drawing.Point(28, 409);
+            this.chk_r_separation.Location = new System.Drawing.Point(29, 379);
             this.chk_r_separation.Name = "chk_r_separation";
             this.chk_r_separation.Size = new System.Drawing.Size(79, 18);
             this.chk_r_separation.TabIndex = 118;
@@ -1199,7 +1129,7 @@
             // 
             this.chk_r_flow.AutoSize = true;
             this.chk_r_flow.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_flow.Location = new System.Drawing.Point(28, 325);
+            this.chk_r_flow.Location = new System.Drawing.Point(28, 286);
             this.chk_r_flow.Name = "chk_r_flow";
             this.chk_r_flow.Size = new System.Drawing.Size(79, 18);
             this.chk_r_flow.TabIndex = 119;
@@ -1211,7 +1141,7 @@
             // 
             this.chk_r_weather.AutoSize = true;
             this.chk_r_weather.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_weather.Location = new System.Drawing.Point(28, 244);
+            this.chk_r_weather.Location = new System.Drawing.Point(27, 191);
             this.chk_r_weather.Name = "chk_r_weather";
             this.chk_r_weather.Size = new System.Drawing.Size(79, 18);
             this.chk_r_weather.TabIndex = 120;
@@ -1223,7 +1153,7 @@
             // 
             this.chk_r_coordination.AutoSize = true;
             this.chk_r_coordination.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_coordination.Location = new System.Drawing.Point(28, 285);
+            this.chk_r_coordination.Location = new System.Drawing.Point(28, 241);
             this.chk_r_coordination.Name = "chk_r_coordination";
             this.chk_r_coordination.Size = new System.Drawing.Size(79, 18);
             this.chk_r_coordination.TabIndex = 121;
@@ -1235,7 +1165,7 @@
             // 
             this.chk_r_brief.AutoSize = true;
             this.chk_r_brief.Font = new System.Drawing.Font("Calibri", 9F);
-            this.chk_r_brief.Location = new System.Drawing.Point(28, 163);
+            this.chk_r_brief.Location = new System.Drawing.Point(28, 88);
             this.chk_r_brief.Name = "chk_r_brief";
             this.chk_r_brief.Size = new System.Drawing.Size(79, 18);
             this.chk_r_brief.TabIndex = 122;
@@ -1296,7 +1226,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label23.Location = new System.Drawing.Point(21, 132);
+            this.label23.Location = new System.Drawing.Point(17, 42);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(93, 14);
             this.label23.TabIndex = 126;
@@ -1306,17 +1236,100 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label24.Location = new System.Drawing.Point(154, 133);
+            this.label24.Location = new System.Drawing.Point(147, 42);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(46, 14);
             this.label24.TabIndex = 127;
             this.label24.Text = "Overall";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btn_d_appclearance);
+            this.groupBox2.Controls.Add(this.btn_d_mva);
+            this.groupBox2.Controls.Add(this.btn_d_loasop);
+            this.groupBox2.Controls.Add(this.btn_d_fix);
+            this.groupBox2.Controls.Add(this.btn_d_final);
+            this.groupBox2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic);
+            this.groupBox2.Location = new System.Drawing.Point(506, 108);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(130, 171);
+            this.groupBox2.TabIndex = 128;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tracon";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btn_d_landing);
+            this.groupBox3.Controls.Add(this.btn_d_takeoff);
+            this.groupBox3.Controls.Add(this.btn_d_luaw);
+            this.groupBox3.Controls.Add(this.btn_d_waketurb);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.groupBox3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic);
+            this.groupBox3.Location = new System.Drawing.Point(367, 108);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(134, 172);
+            this.groupBox3.TabIndex = 129;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Local";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btn_d_wafdof);
+            this.groupBox4.Controls.Add(this.btn_d_squawk);
+            this.groupBox4.Controls.Add(this.btn_d_cddelay);
+            this.groupBox4.Controls.Add(this.btn_d_cdclearance);
+            this.groupBox4.Controls.Add(this.btn_d_taxi);
+            this.groupBox4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic);
+            this.groupBox4.Location = new System.Drawing.Point(238, 108);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(123, 172);
+            this.groupBox4.TabIndex = 130;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ground";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btn_u_pointouts);
+            this.groupBox5.Controls.Add(this.btn_u_flow);
+            this.groupBox5.Controls.Add(this.btn_u_separation);
+            this.groupBox5.Controls.Add(this.btn_u_situational);
+            this.groupBox5.Controls.Add(this.btn_u_phraseology);
+            this.groupBox5.Controls.Add(this.btn_u_sequence);
+            this.groupBox5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic);
+            this.groupBox5.Location = new System.Drawing.Point(238, 287);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(263, 100);
+            this.groupBox5.TabIndex = 131;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Markups";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btn_d_slow);
+            this.groupBox6.Controls.Add(this.btn_d_separation);
+            this.groupBox6.Controls.Add(this.btn_d_phraseology);
+            this.groupBox6.Controls.Add(this.btn_d_nearincident);
+            this.groupBox6.Controls.Add(this.btn_d_incident);
+            this.groupBox6.Controls.Add(this.btn_d_coordination);
+            this.groupBox6.Controls.Add(this.btn_d_readback);
+            this.groupBox6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Italic);
+            this.groupBox6.Location = new System.Drawing.Point(503, 285);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(138, 228);
+            this.groupBox6.TabIndex = 132;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "General";
             // 
             // training
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 683);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.groupBox1);
@@ -1332,11 +1345,6 @@
             this.Controls.Add(this.chk_r_phraseology);
             this.Controls.Add(this.chk_r_loa);
             this.Controls.Add(this.chk_r_runway);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.btn_d_final);
-            this.Controls.Add(this.btn_d_readback);
-            this.Controls.Add(this.btn_d_taxi);
-            this.Controls.Add(this.btn_d_coordination);
             this.Controls.Add(this.lbl_fail);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
@@ -1348,33 +1356,15 @@
             this.Controls.Add(this.lbl_sname);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
-            this.Controls.Add(this.label26);
-            this.Controls.Add(this.lbl_npoints);
-            this.Controls.Add(this.lbl_ppoints);
             this.Controls.Add(this.lbl_score);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_timer);
-            this.Controls.Add(this.lbl_markups);
-            this.Controls.Add(this.lbl_markdowns);
-            this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.btn_d_slow);
-            this.Controls.Add(this.btn_d_incident);
-            this.Controls.Add(this.btn_d_nearincident);
-            this.Controls.Add(this.btn_d_phraseology);
-            this.Controls.Add(this.btn_d_separation);
-            this.Controls.Add(this.btn_u_sequence);
-            this.Controls.Add(this.btn_u_phraseology);
-            this.Controls.Add(this.btn_u_pointouts);
-            this.Controls.Add(this.btn_u_situational);
-            this.Controls.Add(this.btn_u_separation);
-            this.Controls.Add(this.btn_u_flow);
             this.Controls.Add(this.cb_dutypriority);
             this.Controls.Add(this.cb_phraseology);
             this.Controls.Add(this.cb_loa);
@@ -1395,18 +1385,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.btn_d_fix);
-            this.Controls.Add(this.btn_d_loasop);
-            this.Controls.Add(this.btn_d_mva);
-            this.Controls.Add(this.btn_d_appclearance);
-            this.Controls.Add(this.btn_d_landing);
-            this.Controls.Add(this.btn_d_waketurb);
-            this.Controls.Add(this.btn_d_luaw);
-            this.Controls.Add(this.btn_d_takeoff);
-            this.Controls.Add(this.btn_d_wafdof);
-            this.Controls.Add(this.btn_d_cdclearance);
-            this.Controls.Add(this.btn_d_cddelay);
-            this.Controls.Add(this.btn_d_squawk);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -1417,6 +1395,11 @@
             this.Load += new System.EventHandler(this.training_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1476,22 +1459,15 @@
         private System.Windows.Forms.Button btn_d_separation;
         private System.Windows.Forms.Button btn_d_incident;
         private System.Windows.Forms.Button btn_d_slow;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label lbl_markdowns;
-        private System.Windows.Forms.Label lbl_markups;
         private System.Windows.Forms.Label lbl_timer;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbl_score;
-        private System.Windows.Forms.Label lbl_ppoints;
-        private System.Windows.Forms.Label lbl_npoints;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label lbl_sname;
@@ -1507,7 +1483,6 @@
         private System.Windows.Forms.Button btn_d_taxi;
         private System.Windows.Forms.Button btn_d_readback;
         private System.Windows.Forms.Button btn_d_final;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.CheckBox chk_r_runway;
         private System.Windows.Forms.CheckBox chk_r_loa;
         private System.Windows.Forms.CheckBox chk_r_phraseology;
@@ -1526,5 +1501,10 @@
         private System.Windows.Forms.RadioButton rb_na;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
     }
 }

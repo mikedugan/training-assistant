@@ -652,6 +652,10 @@ namespace TrainingAssistant.views
             this.s.ots = 0;
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+        }
+
 
     }
 }
