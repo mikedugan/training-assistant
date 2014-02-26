@@ -49,7 +49,7 @@ namespace TrainingAssistant.views
             else
             {
             //switch to the training session screen
-            (new views.training(ins, student, rateText)).Show();
+            (new views.training(ins, student, rateText, this.student_training.SelectedIndex)).Show();
             this.Hide();
             }
         }

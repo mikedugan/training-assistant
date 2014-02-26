@@ -17,7 +17,8 @@ namespace TrainingAssistant.views
         private string[] student;
         private string[] ins;
         private string[] ratings;
-        public training(string[] ins, string[] student, string[] ratings)
+        private int seshType;
+        public training(string[] ins, string[] student, string[] ratings, int seshType)
         {
             s = new Session();
             this.ins = ins;
@@ -28,6 +29,7 @@ namespace TrainingAssistant.views
             this.setup_page();
             this.lbl_timer.Text = "Session starting at " + DateTime.Now.ToString();
             this.startTimer();
+            this.seshType = seshType;
         }
 
         private void startTimer()
@@ -52,6 +54,24 @@ namespace TrainingAssistant.views
         {
             this.lbl_iname.Text = Helpers.ToUppercase(this.ins[0]) + ' ' + Helpers.ToUppercase(this.ins[1]) + "(" + this.ins[2].ToUpper() + ")";
             this.lbl_sname.Text = Helpers.ToUppercase(this.student[0]) + ' ' + Helpers.ToUppercase(this.student[1]) + "(" + this.student[2].ToUpper() + ")";
+            if (this.seshType < 3)
+            {
+                this.btn_d_landing.Enabled = false;
+                this.btn_d_takeoff.Enabled = false;
+                this.btn_d_luaw.Enabled = false;
+                this.btn_d_waketurb.Enabled = false;
+                this.btn_d_separation.Enabled = false;
+            }
+
+            if (this.seshType < 6)
+            {
+                this.btn_d_appclearance.Enabled = false;
+                this.btn_d_mva.Enabled = false;
+                this.btn_d_loasop.Enabled = false;
+                this.btn_d_fix.Enabled = false;
+                this.btn_d_final.Enabled = false;
+            }
+
         }
 
         private void SetCbIndex()

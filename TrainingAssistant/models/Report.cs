@@ -57,7 +57,13 @@ namespace TrainingAssistant.models
 
         protected string generateDatabaseHeader()
         {
-            return "\r\n";
+            string h = "Spent " + this.info[3][0] + " minutes with " + this.info[1][2] + " training on " + this.info[2][1] + "\r\n";
+            foreach(string s in this.reviewed)
+            {
+                h += s + "\r\n";
+            }
+            return h;
+
         }
 
         protected string generateStudentHeader()
@@ -159,7 +165,7 @@ namespace TrainingAssistant.models
             summary += "Instructor: " + ins + " Student: " + student + "\r\n";
             summary += "Student is certified for " + this.info[2][0] + " and is training for " + this.info[2][1] + "\r\n";
             summary += "Total training session time: " + this.info[3][0] + " minutes";
-            string pass = this.sesh.checkFail() ? "pass" : "fail";
+            string pass = this.sesh.checkFail() ? "fail" : "pass";
             summary += "The total score was " + Math.Round((this.sesh.score * 100),2) + "%. The program recommend that this student " + pass + " the session.\r\n";
             summary += "Weather: " + this.sesh.weather.ToString() + " Complexity: " + this.sesh.complexity.ToString() + " Traffic: " + this.sesh.traffic.ToString();
             return summary;
