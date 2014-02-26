@@ -59,6 +59,12 @@
     <Compile Include="views\main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\StandardReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\StandardReport.Designer.cs">
+      <DependentUpon>StandardReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\training.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="views\main.resx">
       <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\StandardReport.resx">
+      <DependentUpon>StandardReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\training.resx">
       <DependentUpon>training.cs</DependentUpon>

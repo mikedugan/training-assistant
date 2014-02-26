@@ -30,8 +30,8 @@ namespace TrainingAssistant.views
             ins[2] = this.ins_initials.Text;
             ratings[1] = this.student_training.SelectedIndex;
             ratings[0] = this.student_rating.SelectedIndex;
-            rateText[1] = this.student_training.SelectedValue.ToString();
-            rateText[0] = this.student_rating.SelectedValue.ToString();
+            rateText[1] = this.student_training.SelectedItem.ToString();
+            rateText[0] = this.student_rating.SelectedItem.ToString();
 
 
             //make sure all the data is correct

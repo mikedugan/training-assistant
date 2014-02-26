@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TrainingAssistant.models
 {
-    class Session
+    public class Session
     {
         public List<string> errors { get; set; }
         public enum TrafficLevel { light, moderate, heavy }
@@ -115,13 +115,14 @@ namespace TrainingAssistant.models
             //gnd,twr,app,gen,pos,combos
             //public List<Dictionary<string, int>> events
             this.finish = DateTime.Now;
-            double delta = this.finish.Subtract(this.start).TotalMinutes;
+            double delta = Math.Round(this.finish.Subtract(this.start).TotalMinutes, 2);
             List<Dictionary<string, int>> e = new List<Dictionary<string, int>>();
             e.Add(this.gndEvents); e.Add(this.twrEvents); e.Add(this.appEvents); e.Add(this.genEvents); e.Add(this.posEvents); e.Add(this.combos);
             List<string[]> info = new List<string[]>();
             string[] t = new string[1]; t[0] = delta.ToString();
             info.Add(ins); info.Add(student); info.Add(ratings); info.Add(t);
-            Report r = new Report(info, this.reviewed, e);
+            Report r = new Report(info, this.reviewed, e, this);
+            (new views.StandardReport(r)).Show();
         }
 
         public double updateScore()

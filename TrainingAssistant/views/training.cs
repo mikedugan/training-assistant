@@ -24,6 +24,7 @@ namespace TrainingAssistant.views
             this.student = student;
             this.ratings = ratings;
             InitializeComponent();
+            SetCbIndex();
             this.setup_page();
             this.lbl_timer.Text = "Session starting at " + DateTime.Now.ToString();
             this.startTimer();
@@ -40,6 +41,7 @@ namespace TrainingAssistant.views
         private void timer_Tick(object sender, EventArgs e)
         {
             this.updateTimer();
+            this.s.score = this.s.updateScore();
             this.lbl_score.Text = (this.s.score * 100).ToString() + "%";
             this.lbl_npoints.Text = this.s.negPoints.ToString();
             this.lbl_ppoints.Text = this.s.posPoints.ToString();
@@ -50,6 +52,25 @@ namespace TrainingAssistant.views
         {
             this.lbl_iname.Text = Helpers.ToUppercase(this.ins[0]) + ' ' + Helpers.ToUppercase(this.ins[1]) + "(" + this.ins[2].ToUpper() + ")";
             this.lbl_sname.Text = Helpers.ToUppercase(this.student[0]) + ' ' + Helpers.ToUppercase(this.student[1]) + "(" + this.student[2].ToUpper() + ")";
+        }
+
+        private void SetCbIndex()
+        {
+            this.cb_aircraftidentity.SelectedIndex = 0;
+            this.cb_airspace.SelectedIndex = 0;
+            this.cb_coordination.SelectedIndex = 0;
+            this.cb_dutypriority.SelectedIndex = 0;
+            this.cb_loa.SelectedIndex = 0;
+            this.cb_lvl_complexity.SelectedIndex = 0;
+            this.cb_lvl_traffic.SelectedIndex = 0;
+            this.cb_lvl_weather.SelectedIndex = 0;
+            this.cb_phraseology.SelectedIndex = 0;
+            this.cb_pointouts.SelectedIndex = 0;
+            this.cb_rwyselection.SelectedIndex = 0;
+            this.cb_separation.SelectedIndex = 0;
+            this.cb_signonbrief.SelectedIndex = 0;
+            this.cb_trafficflow.SelectedIndex = 0;
+            this.cb_weather.SelectedIndex = 0;
         }
 
         #region click handlers
