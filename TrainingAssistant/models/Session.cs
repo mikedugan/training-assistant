@@ -11,8 +11,6 @@ namespace TrainingAssistant.models
         public enum TrafficLevel { light, moderate, heavy }
         public enum ComplexityLevel { very_easy, easy, moderate, hard, very_hard}
         public enum WeatherConditions { vfr, mvfr, ifr}
-        DateTime start { get; set; }
-        DateTime finish { get; set; }
         public int markups { get; set; }
         public int markdowns { get; set; }
         public List<string> reviewed { get; set; }
@@ -34,7 +32,7 @@ namespace TrainingAssistant.models
 
         public Session()
         {
-            this.start = DateTime.Now;
+            Globals.sessionStart = DateTime.Now;
             this.complexity = ComplexityLevel.easy;
             this.traffic = TrafficLevel.light;
             this.weather = WeatherConditions.vfr;
@@ -104,7 +102,7 @@ namespace TrainingAssistant.models
 
         public int getTime()
         {
-            return (int)DateTime.Now.Subtract(this.start).TotalMinutes;
+            return (int)DateTime.Now.Subtract(Globals.sessionStart).TotalMinutes;
         }
 
         public void complete(string[] ins, string[] student, string[] ratings)
@@ -114,12 +112,11 @@ namespace TrainingAssistant.models
             //public List<string> reviewed;
             //gnd,twr,app,gen,pos,combos
             //public List<Dictionary<string, int>> events
-            this.finish = DateTime.Now;
-            double delta = Math.Round(this.finish.Subtract(this.start).TotalMinutes, 2);
+            Globals.sessionFinish = DateTime.Now;
             List<Dictionary<string, int>> e = new List<Dictionary<string, int>>();
             e.Add(this.gndEvents); e.Add(this.twrEvents); e.Add(this.appEvents); e.Add(this.genEvents); e.Add(this.posEvents); e.Add(this.combos);
             List<string[]> info = new List<string[]>();
-            string[] t = new string[1]; t[0] = delta.ToString();
+            string[] t = new string[1]; t[0] = Globals.getTotalTime().ToString();
             info.Add(ins); info.Add(student); info.Add(ratings); info.Add(t);  ;
             Report r = new Report(info, this.reviewed, e, this);
             (new views.StandardReport(r)).Show();

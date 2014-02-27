@@ -17,8 +17,7 @@ namespace TrainingAssistant.views
         private string[] student;
         private string[] ins;
         private string[] ratings;
-        private int seshType;
-        public training(string[] ins, string[] student, string[] ratings, int seshType)
+        public training(string[] ins, string[] student, string[] ratings)
         {
             s = new Session();
             this.ins = ins;
@@ -27,9 +26,8 @@ namespace TrainingAssistant.views
             InitializeComponent();
             SetCbIndex();
             this.setup_page();
-            this.lbl_timer.Text = "Session starting at " + DateTime.Now.ToString();
+            this.lbl_timer.Text = "Session starting at " + Globals.sessionStart.ToString();
             this.startTimer();
-            this.seshType = seshType;
         }
 
         private void startTimer()
@@ -47,12 +45,16 @@ namespace TrainingAssistant.views
             this.lbl_score.Text = (this.s.score * 100).ToString() + "%";
             if (this.s.checkFail()) { this.lbl_fail.Text = "Fail"; } else this.lbl_fail.Text = "Pass";
         }
+        private void updateTimer()
+        {
+            this.lbl_timer.Text = "Time Elapsed: " + this.s.getTime().ToString() + " minutes";
+        }
 
         private void setup_page()
         {
-            this.lbl_iname.Text = Helpers.ToUppercase(this.ins[0]) + ' ' + Helpers.ToUppercase(this.ins[1]) + "(" + this.ins[2].ToUpper() + ")";
-            this.lbl_sname.Text = Helpers.ToUppercase(this.student[0]) + ' ' + Helpers.ToUppercase(this.student[1]) + "(" + this.student[2].ToUpper() + ")";
-            if (this.seshType < 3)
+            this.lbl_iname.Text = Globals.insName + "(" + Globals.insInitials + ")";
+            this.lbl_sname.Text = Globals.studentName + "(" + Globals.studentInitials + ")";
+            /*if (this.seshType < 3;
             {
                 this.btn_d_landing.Enabled = false;
                 this.btn_d_takeoff.Enabled = false;
@@ -69,7 +71,7 @@ namespace TrainingAssistant.views
                 this.btn_d_loasop.Enabled = false;
                 this.btn_d_fix.Enabled = false;
                 this.btn_d_final.Enabled = false;
-            }
+            }*/
 
         }
 
@@ -225,10 +227,33 @@ namespace TrainingAssistant.views
         {
             this.s.genEvents["readback"]++;
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.s.complete(this.ins, this.student, this.ratings);
+        }
 
+        private void btn_golive_Click(object sender, EventArgs e)
+        {
+            Globals.briefFinish = DateTime.Now;
+        }
         #endregion
 
         #region cb handlers
+        private void cb_lvl_weather_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (this.cb_lvl_weather.SelectedIndex)
+            {
+                case 0:
+                    this.s.weather = Session.WeatherConditions.vfr;
+                    break;
+                case 1:
+                    this.s.weather = Session.WeatherConditions.mvfr;
+                    break;
+                case 3:
+                    this.s.weather = Session.WeatherConditions.ifr;
+                    break;
+            }
+        }
         private void cb_signonbrief_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (this.cb_signonbrief.SelectedIndex)
@@ -421,9 +446,61 @@ namespace TrainingAssistant.views
                     break;
             }
         }
+        private void cb_lvl_complexity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (this.cb_lvl_complexity.SelectedIndex)
+            {
+                case 0:
+                    this.s.complexity = Session.ComplexityLevel.very_easy;
+                    break;
+                case 1:
+                    this.s.complexity = Session.ComplexityLevel.easy;
+                    break;
+                case 2:
+                    this.s.complexity = Session.ComplexityLevel.moderate;
+                    break;
+                case 3:
+                    this.s.complexity = Session.ComplexityLevel.hard;
+                    break;
+                case 4:
+                    this.s.complexity = Session.ComplexityLevel.very_hard;
+                    break;
+            }
+        }
+
+        private void cb_lvl_traffic_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (this.cb_lvl_traffic.SelectedIndex)
+            {
+                case 0:
+                    this.s.traffic = Session.TrafficLevel.light;
+                    break;
+                case 1:
+                    this.s.traffic = Session.TrafficLevel.moderate;
+                    break;
+                case 2:
+                    this.s.traffic = Session.TrafficLevel.heavy;
+                    break;
+            }
+        }
         #endregion
 
         #region chk handlers
+
+        private void rb_pass_CheckedChanged(object sender, EventArgs e)
+        {
+            this.s.ots = 2;
+        }
+
+        private void rb_fail_CheckedChanged(object sender, EventArgs e)
+        {
+            this.s.ots = 1;
+        }
+
+        private void rb_na_CheckedChanged(object sender, EventArgs e)
+        {
+            this.s.ots = 0;
+        }
         private void chk_r_runway_CheckedChanged(object sender, EventArgs e)
         {
             string s = "Runway configuration was reviewed.";
@@ -547,103 +624,10 @@ namespace TrainingAssistant.views
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.s.complete(this.ins, this.student, this.ratings);
-        }
-
-        private void updateTimer()
-        {
-            this.lbl_timer.Text = "Time Elapsed: " + this.s.getTime().ToString() + " minutes";
-        }
-
-        private void cb_lvl_weather_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch(this.cb_lvl_weather.SelectedIndex) {
-                case 0:
-                    this.s.weather = Session.WeatherConditions.vfr;
-                    break;
-                case 1:
-                    this.s.weather = Session.WeatherConditions.mvfr;
-                    break;
-                case 3:
-                    this.s.weather = Session.WeatherConditions.ifr;
-                    break;
-            }
-        }
-
-        private void cb_lvl_complexity_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (this.cb_lvl_complexity.SelectedIndex)
-            {
-                case 0:
-                    this.s.complexity = Session.ComplexityLevel.very_easy;
-                    break;
-                case 1:
-                    this.s.complexity = Session.ComplexityLevel.easy;
-                    break;
-                case 2:
-                    this.s.complexity = Session.ComplexityLevel.moderate;
-                    break;
-                case 3:
-                    this.s.complexity = Session.ComplexityLevel.hard;
-                    break;
-                case 4:
-                    this.s.complexity = Session.ComplexityLevel.very_hard;
-                    break;
-            }
-        }
-
-        private void cb_lvl_traffic_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (this.cb_lvl_traffic.SelectedIndex)
-            {
-                case 0:
-                    this.s.traffic = Session.TrafficLevel.light;
-                    break;
-                case 1:
-                    this.s.traffic = Session.TrafficLevel.moderate;
-                    break;
-                case 2:
-                    this.s.traffic = Session.TrafficLevel.heavy;
-                    break;
-            }
-        }
-
-        private void training_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void chk_r_brief_CheckedChanged(object sender, EventArgs e)
         {
             
         }
-
-        private void rb_pass_CheckedChanged(object sender, EventArgs e)
-        {
-            this.s.ots = 2;
-        }
-
-        private void rb_fail_CheckedChanged(object sender, EventArgs e)
-        {
-            this.s.ots = 1;
-        }
-
-        private void rb_na_CheckedChanged(object sender, EventArgs e)
-        {
-            this.s.ots = 0;
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-        }
-
 
     }
 }

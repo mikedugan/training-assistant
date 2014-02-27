@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 
 namespace TrainingAssistant
 {
     class Helpers
     {
-        public static string ToUppercase(string s)
-        {
-            if(string.IsNullOrEmpty(s))
-            {
-                return string.Empty;
-            }           
-
-            return char.ToUpper(s[0]) + s.Substring(1);
-        }
+		public static string Capitalize(string s)
+		{
+			TextInfo t = new CultureInfo ("en-US", false).TextInfo;
+			return t.ToTitleCase (s);
+		}
     }
 }

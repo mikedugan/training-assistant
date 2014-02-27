@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Globals.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="models\Report.cs" />
     <Compile Include="models\Session.cs" />

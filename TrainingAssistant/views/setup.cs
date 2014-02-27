@@ -49,7 +49,11 @@ namespace TrainingAssistant.views
             else
             {
             //switch to the training session screen
-            (new views.training(ins, student, rateText, this.student_training.SelectedIndex)).Show();
+                Globals.studentName = Helpers.Capitalize(student[0] + " " + student[1]);
+                Globals.studentInitials = student[2].ToUpper();
+                Globals.insName = Helpers.Capitalize(ins[0] + " " + ins[1]);
+                Globals.insInitials = ins[2].ToUpper();
+            (new views.training(ins, student, rateText)).Show();
             this.Hide();
             }
         }

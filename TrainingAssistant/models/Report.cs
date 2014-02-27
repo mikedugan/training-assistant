@@ -153,8 +153,8 @@ namespace TrainingAssistant.models
         
         public string generateSummary()
         {
-            string student = Helpers.ToUppercase(this.info[0][0]) + ' ' + Helpers.ToUppercase(this.info[0][1]) + "(" + this.info[0][2].ToUpper() + ")";
-            string ins = Helpers.ToUppercase(this.info[1][0]) + ' ' + Helpers.ToUppercase(this.info[1][1]) + "(" + this.info[1][2].ToUpper() + ")";
+            string student = Helpers.Capitalize(this.info[0][0] + ' ' + this.info[0][1]) + "(" + this.info[0][2].ToUpper() + ")";
+            string ins = Helpers.Capitalize(this.info[1][0] + ' ' + this.info[1][1]) + "(" + this.info[1][2].ToUpper() + ")";
             //ins, student, ratings, time, conditions, ppoints, npoints
             string summary = "Training session on " + DateTime.Now.ToString() + "\r\n";
             summary += "Instructor: " + ins + " Student: " + student + "\r\n";
