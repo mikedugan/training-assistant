@@ -127,6 +127,7 @@ namespace TrainingAssistant.models
 
         public double updateScore()
         {
+            this.modifier = 1;
             switch (this.complexity) 
             {
                 case ComplexityLevel.easy:

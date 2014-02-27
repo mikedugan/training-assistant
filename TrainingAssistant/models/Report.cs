@@ -24,7 +24,7 @@ namespace TrainingAssistant.models
             this.dComment = "";
             this.sComment = "";
             this.sesh = sesh;
-            this.reviewItems = "You should review ";
+            this.reviewItems = "";
         }
 
         public string generateDatabaseComment()
@@ -40,11 +40,8 @@ namespace TrainingAssistant.models
         public string generateReport()
         {
             string report = generateSummary();
-            report += "====Database Comment=====\r\n";
             report += generateDatabaseComment();
-            report += "====Student Comment====\r\n";
             report += generateStudentComment();
-            report += "====General Performance====\r\n";
             report += generateCbReview();
 
             return report;
@@ -57,7 +54,7 @@ namespace TrainingAssistant.models
 
         protected string generateDatabaseHeader()
         {
-            string h = "Spent " + this.info[3][0] + " minutes with " + this.info[1][2] + " training on " + this.info[2][1] + "\r\n";
+            string h = "Spent " + this.info[3][0] + " minutes with " + this.info[1][2].ToUpper() + " training on " + this.info[2][1] + "\r\n";
             foreach(string s in this.reviewed)
             {
                 h += s + "\r\n";
@@ -68,10 +65,11 @@ namespace TrainingAssistant.models
 
         protected string generateStudentHeader()
         {
-            string h = this.info[1][2] + ", in this session we spent " + this.info[3][0] + " minute training on " + this.info[2][1] + ".\r\n";
+            string h = this.info[1][2].ToUpper() + ", in this session we spent " + this.info[3][0] + " minute training on " + this.info[2][1] + ".\r\n";
             generateCbReview();
-            h += this.reviewItems;
-            if (this.sesh.ots == 2) { h += "\r\nCongratulations, OTS passed!"; }
+            string ri = this.reviewItems == "" ? "No items were marked for review.\r\n" : "You should review " + this.reviewItems + "check the syllabi for reference materials.\r\n";
+            h += ri;
+            if (this.sesh.ots == 2) { h += "\r\nCongratulations, OTS passed!\r\n"; }
             return h;
         }
 
@@ -150,7 +148,6 @@ namespace TrainingAssistant.models
                 case 5: log += "Duty priority knowledge - Need Improvement\r\n"; this.reviewItems += "duty priorities, "; break;
                 case 0: log += "Duty priority knowledge - Unsatisfactory\r\n"; this.reviewItems += "duty priorities, "; break;
             }
-            this.reviewItems += " check the syllabi for pointers for what to read.";
             return log + "\r\n";
         }
         
@@ -162,7 +159,7 @@ namespace TrainingAssistant.models
             string summary = "Training session on " + DateTime.Now.ToString() + "\r\n";
             summary += "Instructor: " + ins + " Student: " + student + "\r\n";
             summary += "Student is certified for " + this.info[2][0] + " and is training for " + this.info[2][1] + "\r\n";
-            summary += "Total training session time: " + this.info[3][0] + " minutes";
+            summary += "Total training session time: " + this.info[3][0] + " minutes\r\n";
             string pass = this.sesh.checkFail() ? "fail" : "pass";
             summary += "The total score was " + Math.Round((this.sesh.score * 100),2) + "%. The program recommend that this student " + pass + " the session.\r\n";
             summary += "Weather: " + this.sesh.weather.ToString() + " Complexity: " + this.sesh.complexity.ToString() + " Traffic: " + this.sesh.traffic.ToString() + "\r\n";
@@ -178,12 +175,14 @@ namespace TrainingAssistant.models
             Dictionary<string, int> tEvents = this.events[1];
             Dictionary<string, int> aEvents = this.events[2];
             Dictionary<string, int> nEvents = this.events[3];
+            Dictionary<string, int> pEvents = this.events[4];
             gEvents = gEvents.Where(x => x.Value > 0).ToDictionary(x => x.Key, x => x.Value);
             tEvents = tEvents.Where(x => x.Value > 0).ToDictionary(x => x.Key, x => x.Value);
             aEvents = aEvents.Where(x => x.Value > 0).ToDictionary(x => x.Key, x => x.Value);
             nEvents = nEvents.Where(x => x.Value > 0).ToDictionary(x => x.Key, x => x.Value);
+            pEvents = pEvents.Where(x => x.Value > 0).ToDictionary(x => x.Key, x => x.Value);
 
-            string log = "The following events were returned from the training session:\r\n";
+            string log = "The following markdowns were returned from the training session:\r\n";
 
             log += gEvents.ContainsKey("wafdof") ? gEvents["wafdof"] + " wrong altitude for direction of flight errors\r\n" : "";
             log += gEvents.ContainsKey("squawk") ? gEvents["squawk"] + " no/incorrect squawk codes assigned\r\n" : "";
@@ -209,6 +208,26 @@ namespace TrainingAssistant.models
             log += nEvents.ContainsKey("incident") ? nEvents["incident"] + " incidents (planes did crash)\r\n": "";
             log += nEvents.ContainsKey("readback") ? nEvents["readback"] + " incorrect readbacks\r\n": "";
             log += nEvents.ContainsKey("coordination") ? nEvents["coordination"] + " missed or incorrect controller coordination\r\n": "";
+
+
+
+            /*this.btn_u_sequence = new System.Windows.Forms.Button();
+            this.btn_u_phraseology = new System.Windows.Forms.Button();
+            this.btn_u_pointouts = new System.Windows.Forms.Button();
+            this.btn_u_situational = new System.Windows.Forms.Button();
+            this.btn_u_separation = new System.Windows.Forms.Button();
+            this.btn_u_flow = new System.Windows.Forms.Button();
+            this.btn_d_nearincident = new System.Windows.Forms.Button();
+            this.btn_d_phraseology = new System.Windows.Forms.Button();
+            this.btn_d_separation = new System.Windows.Forms.Button();
+            this.btn_d_incident = new System.Windows.Forms.Button();*/
+
+            log += "The following markups were returned from the session:\r\n";
+            log += pEvents.ContainsKey("flow") ? pEvents["flow"] + " instances of good traffic flow management\r\n": "";
+            log += pEvents.ContainsKey("situational") ? pEvents["situational"] + " instances of good situational awareness\r\n": "";
+            log += pEvents.ContainsKey("phraseology") ? pEvents["phraseology"] + " instances of good phraseology\r\n": "";
+            log += pEvents.ContainsKey("separation") ? pEvents["separation"] + " instances of good aircraft separation\r\n": "";
+            log += pEvents.ContainsKey("pointouts") ? pEvents["pointouts"] + " instances of good traffic and safety pointouts\r\n": "";
 
             return log + "\r\n";
         }
