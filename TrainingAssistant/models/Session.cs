@@ -105,7 +105,7 @@ namespace TrainingAssistant.models
             return (int)DateTime.Now.Subtract(Globals.sessionStart).TotalMinutes;
         }
 
-        public void complete(string[] ins, string[] student, string[] ratings)
+        public void complete()
         {
             //ins, student, ratings, time, conditions
             //public List<string[]> info;
@@ -116,9 +116,7 @@ namespace TrainingAssistant.models
             List<Dictionary<string, int>> e = new List<Dictionary<string, int>>();
             e.Add(this.gndEvents); e.Add(this.twrEvents); e.Add(this.appEvents); e.Add(this.genEvents); e.Add(this.posEvents); e.Add(this.combos);
             List<string[]> info = new List<string[]>();
-            string[] t = new string[1]; t[0] = Globals.getTotalTime().ToString();
-            info.Add(ins); info.Add(student); info.Add(ratings); info.Add(t);  ;
-            Report r = new Report(info, this.reviewed, e, this);
+            Report r = new Report(this.reviewed, e, this);
             (new views.StandardReport(r)).Show();
         }
 

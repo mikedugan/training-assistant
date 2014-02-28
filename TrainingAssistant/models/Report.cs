@@ -7,8 +7,7 @@ namespace TrainingAssistant.models
 {
     public class Report
     {
-        //ins, student, ratings, time, conditions, ppoints, npoints
-        public List<string[]> info;
+        //conditions, ppoints, npoints
         public List<string> reviewed;
         //gnd,twr,app,gen,pos,combos
         public List<Dictionary<string, int>> events;
@@ -16,9 +15,8 @@ namespace TrainingAssistant.models
         public string sComment;
         public string reviewItems;
         protected Session sesh;
-        public Report(List<string[]> info, List<string> reviewed, List<Dictionary<string, int>> events, Session sesh)
+        public Report(List<string> reviewed, List<Dictionary<string, int>> events, Session sesh)
         {
-            this.info = info;
             this.reviewed = reviewed;
             this.events = events;
             this.dComment = "";
@@ -54,7 +52,7 @@ namespace TrainingAssistant.models
 
         protected string generateDatabaseHeader()
         {
-            string h = "Spent " + this.info[3][0] + " minutes with " + this.info[1][2].ToUpper() + " training on " + this.info[2][1] + "\r\n";
+            string h = "Spent " + Globals.getTotalTime().ToString() + " minutes with " + Globals.studentName + " training on " + Globals.trainingStr + "\r\n";
             foreach(string s in this.reviewed)
             {
                 h += s + "\r\n";
@@ -65,7 +63,7 @@ namespace TrainingAssistant.models
 
         protected string generateStudentHeader()
         {
-            string h = this.info[1][2].ToUpper() + ", in this session we spent " + this.info[3][0] + " minute training on " + this.info[2][1] + ".\r\n";
+            string h = Globals.studentInitials + ", in this session we spent " + Globals.getTotalTime().ToString() + " minutes training on " + Globals.trainingStr + ".\r\n";
             generateCbReview();
             string ri = this.reviewItems == "" ? "No items were marked for review.\r\n" : "You should review " + this.reviewItems + "check the syllabi for reference materials.\r\n";
             h += ri;
@@ -153,16 +151,18 @@ namespace TrainingAssistant.models
         
         public string generateSummary()
         {
-            string student = Helpers.Capitalize(this.info[0][0] + ' ' + this.info[0][1]) + "(" + this.info[0][2].ToUpper() + ")";
-            string ins = Helpers.Capitalize(this.info[1][0] + ' ' + this.info[1][1]) + "(" + this.info[1][2].ToUpper() + ")";
+            string student = Globals.studentName + " (" + Globals.studentInitials + ")";
+            string ins = Globals.insName + " (" + Globals.insInitials + ")";
             //ins, student, ratings, time, conditions, ppoints, npoints
             string summary = "Training session on " + DateTime.Now.ToString() + "\r\n";
             summary += "Instructor: " + ins + " Student: " + student + "\r\n";
-            summary += "Student is certified for " + this.info[2][0] + " and is training for " + this.info[2][1] + "\r\n";
-            summary += "Total training session time: " + this.info[3][0] + " minutes\r\n";
+            summary += "Student is certified for " + Globals.ratingStr + " and is training for " + Globals.trainingStr + "\r\n";
+            summary += "Total training session time: " + Globals.getTotalTime().ToString() + " minutes\r\n";
             string pass = this.sesh.checkFail() ? "fail" : "pass";
             summary += "The total score was " + Math.Round((this.sesh.score * 100),2) + "%. The program recommend that this student " + pass + " the session.\r\n";
-            summary += "Weather: " + this.sesh.weather.ToString() + " Complexity: " + this.sesh.complexity.ToString() + " Traffic: " + this.sesh.traffic.ToString() + "\r\n";
+            string complexity = this.sesh.complexity.ToString();
+            complexity = Helpers.Capitalize(complexity.Replace('_', ' '));
+            summary += "Weather: " + this.sesh.weather.ToString().ToUpper() + "\r\nComplexity: " + complexity + "\r\nTraffic: " + this.sesh.traffic.ToString() + "\r\n";
             if (this.sesh.ots == 0) { summary += "This session was not an OTS\r\n"; }
             else if (this.sesh.ots == 1) { summary += "This OTS session was failed.\r\n"; }
             else summary += "This OTS session was passed.\r\n";
@@ -181,34 +181,40 @@ namespace TrainingAssistant.models
             aEvents = aEvents.Where(x => x.Value > 0).ToDictionary(x => x.Key, x => x.Value);
             nEvents = nEvents.Where(x => x.Value > 0).ToDictionary(x => x.Key, x => x.Value);
             pEvents = pEvents.Where(x => x.Value > 0).ToDictionary(x => x.Key, x => x.Value);
+            string log = "";
+            if (gEvents.Count == 0 && aEvents.Count == 0 && tEvents.Count == 0 && nEvents.Count == 0)
+            {
+                log += "No markdowns were returned from the training session.\r\n";
+            }
+            else
+            {
+                log += "The following markdowns were returned from the training session:\r\n";
 
-            string log = "The following markdowns were returned from the training session:\r\n";
+                log += gEvents.ContainsKey("wafdof") ? gEvents["wafdof"] + " wrong altitude for direction of flight errors\r\n" : "";
+                log += gEvents.ContainsKey("squawk") ? gEvents["squawk"] + " no/incorrect squawk codes assigned\r\n" : "";
+                log += gEvents.ContainsKey("clnc_late") ? gEvents["clnc_late"] + " late or delayed clearances\r\n" : "";
+                log += gEvents.ContainsKey("clnc_wrong") ? gEvents["clnc_wrong"] + " incorrect clearances\r\n" : "";
+                log += gEvents.ContainsKey("taxi") ? gEvents["taxi"] + " incorrect taxi instructions\r\n" : "";
 
-            log += gEvents.ContainsKey("wafdof") ? gEvents["wafdof"] + " wrong altitude for direction of flight errors\r\n" : "";
-            log += gEvents.ContainsKey("squawk") ? gEvents["squawk"] + " no/incorrect squawk codes assigned\r\n" : "";
-            log += gEvents.ContainsKey("clnc_late") ? gEvents["clnc_late"] + " late or delayed clearances\r\n" : "";
-            log += gEvents.ContainsKey("clnc_wrong") ? gEvents["clnc_wrong"] + " incorrect clearances\r\n" : "";
-            log += gEvents.ContainsKey("taxi") ? gEvents["taxi"] + " incorrect taxi instructions\r\n" : "";
+                log += tEvents.ContainsKey("landing") ? tEvents["landing"] + " incorrect landing clearances\r\n" : "";
+                log += tEvents.ContainsKey("takeoff") ? tEvents["takeoff"] + " incorrect takeoff clearances\r\n" : "";
+                log += tEvents.ContainsKey("luaw") ? tEvents["luaw"] + " landing clearances given while aircraft was LUAW\r\n" : "";
+                log += tEvents.ContainsKey("turbulence") ? tEvents["turbulence"] + " missed/incorrect wake turbulence situations\r\n" : "";
 
-            log += tEvents.ContainsKey("landing") ? tEvents["landing"] + " incorrect landing clearances\r\n": "";
-            log += tEvents.ContainsKey("takeoff") ? tEvents["takeoff"] + " incorrect takeoff clearances\r\n": "";
-            log += tEvents.ContainsKey("luaw") ? tEvents["luaw"] + " landing clearances given while aircraft was LUAW\r\n": "";
-            log += tEvents.ContainsKey("turbulence") ? tEvents["turbulence"] + " missed/incorrect wake turbulence situations\r\n": "";
+                log += aEvents.ContainsKey("clnc") ? aEvents["clnc"] + " incorrect approach clearances\r\n" : "";
+                log += aEvents.ContainsKey("mva") ? aEvents["mva"] + " vectors given below minimum vectoring altitude\r\n" : "";
+                log += aEvents.ContainsKey("sop") ? aEvents["sop"] + " SOP or LOA violations\r\n" : "";
+                log += aEvents.ContainsKey("fix") ? aEvents["fix"] + " incorrect or invalid fixes given\r\n" : "";
+                log += aEvents.ContainsKey("final") ? aEvents["final"] + " late or incorrect final vectors given\r\n" : "";
 
-            log += aEvents.ContainsKey("clnc") ? aEvents["clnc"] + " incorrect approach clearances\r\n": "";
-            log += aEvents.ContainsKey("mva") ? aEvents["mva"] + " vectors given below minimum vectoring altitude\r\n": "";
-            log += aEvents.ContainsKey("sop") ? aEvents["sop"] + " SOP or LOA violations\r\n": "";
-            log += aEvents.ContainsKey("fix") ? aEvents["fix"] + " incorrect or invalid fixes given\r\n": "";
-            log += aEvents.ContainsKey("final") ? aEvents["final"] + " late or incorrect final vectors given\r\n": "";
-
-            log += nEvents.ContainsKey("slow") ? nEvents["slow"] + " instances of generally slow flow of traffic\r\n": "";
-            log += nEvents.ContainsKey("separation") ? nEvents["separation"] + " instances of loss of separation\r\n": "";
-            log += nEvents.ContainsKey("phraseology") ? nEvents["phraseology"] + " instances of incorrect phraseology\r\n": "";
-            log += nEvents.ContainsKey("near") ? nEvents["near"] + " near-instances (planes almost crashed)\r\n": "";
-            log += nEvents.ContainsKey("incident") ? nEvents["incident"] + " incidents (planes did crash)\r\n": "";
-            log += nEvents.ContainsKey("readback") ? nEvents["readback"] + " incorrect readbacks\r\n": "";
-            log += nEvents.ContainsKey("coordination") ? nEvents["coordination"] + " missed or incorrect controller coordination\r\n": "";
-
+                log += nEvents.ContainsKey("slow") ? nEvents["slow"] + " instances of generally slow flow of traffic\r\n" : "";
+                log += nEvents.ContainsKey("separation") ? nEvents["separation"] + " instances of loss of separation\r\n" : "";
+                log += nEvents.ContainsKey("phraseology") ? nEvents["phraseology"] + " instances of incorrect phraseology\r\n" : "";
+                log += nEvents.ContainsKey("near") ? nEvents["near"] + " near-instances (planes almost crashed)\r\n" : "";
+                log += nEvents.ContainsKey("incident") ? nEvents["incident"] + " incidents (planes did crash)\r\n" : "";
+                log += nEvents.ContainsKey("readback") ? nEvents["readback"] + " incorrect readbacks\r\n" : "";
+                log += nEvents.ContainsKey("coordination") ? nEvents["coordination"] + " missed or incorrect controller coordination\r\n" : "";
+            }
 
 
             /*this.btn_u_sequence = new System.Windows.Forms.Button();
@@ -221,14 +227,16 @@ namespace TrainingAssistant.models
             this.btn_d_phraseology = new System.Windows.Forms.Button();
             this.btn_d_separation = new System.Windows.Forms.Button();
             this.btn_d_incident = new System.Windows.Forms.Button();*/
-
-            log += "The following markups were returned from the session:\r\n";
-            log += pEvents.ContainsKey("flow") ? pEvents["flow"] + " instances of good traffic flow management\r\n": "";
-            log += pEvents.ContainsKey("situational") ? pEvents["situational"] + " instances of good situational awareness\r\n": "";
-            log += pEvents.ContainsKey("phraseology") ? pEvents["phraseology"] + " instances of good phraseology\r\n": "";
-            log += pEvents.ContainsKey("separation") ? pEvents["separation"] + " instances of good aircraft separation\r\n": "";
-            log += pEvents.ContainsKey("pointouts") ? pEvents["pointouts"] + " instances of good traffic and safety pointouts\r\n": "";
-
+            if (pEvents.Count == 0) { log += "No markups were returned from the session.\r\n"; }
+            else
+            {
+                log += "The following markups were returned from the session:\r\n";
+                log += pEvents.ContainsKey("flow") ? pEvents["flow"] + " instances of good traffic flow management\r\n" : "";
+                log += pEvents.ContainsKey("situational") ? pEvents["situational"] + " instances of good situational awareness\r\n" : "";
+                log += pEvents.ContainsKey("phraseology") ? pEvents["phraseology"] + " instances of good phraseology\r\n" : "";
+                log += pEvents.ContainsKey("separation") ? pEvents["separation"] + " instances of good aircraft separation\r\n" : "";
+                log += pEvents.ContainsKey("pointouts") ? pEvents["pointouts"] + " instances of good traffic and safety pointouts\r\n" : "";
+            }
             return log + "\r\n";
         }
 

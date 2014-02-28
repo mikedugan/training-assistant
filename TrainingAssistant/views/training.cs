@@ -14,15 +14,9 @@ namespace TrainingAssistant.views
     {
         Session s { get; set; }
         private Timer timer;
-        private string[] student;
-        private string[] ins;
-        private string[] ratings;
-        public training(string[] ins, string[] student, string[] ratings)
+        public training()
         {
             s = new Session();
-            this.ins = ins;
-            this.student = student;
-            this.ratings = ratings;
             InitializeComponent();
             SetCbIndex();
             this.setup_page();
@@ -229,7 +223,7 @@ namespace TrainingAssistant.views
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            this.s.complete(this.ins, this.student, this.ratings);
+            this.s.complete();
         }
 
         private void btn_golive_Click(object sender, EventArgs e)

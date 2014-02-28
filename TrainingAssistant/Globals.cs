@@ -17,6 +17,8 @@ namespace TrainingAssistant
 
         public static int studentRating { get; set; }
         public static int studentTraining { get; set; }
+        public static string ratingStr { get; set; }
+        public static string trainingStr { get; set; }
 
         public static double getTotalTime()
         {
