@@ -50,10 +50,11 @@ namespace TrainingAssistant.views
 
         public bool check()
         {
+            this.errors = new List<string>();
             //ratings1 = rating ratings2 = training for
-            if (Globals.insName == null || Globals.insName == "") { this.errors.Add("Please add instructor's name.\r\n"); }
+            if (String.IsNullOrWhiteSpace(Globals.insName)) { this.errors.Add("Please add instructor's name.\r\n"); }
             if (Globals.insInitials.Length != 2) { this.errors.Add("Instructor initials not valid.\r\n"); }
-            if (Globals.studentName == null || Globals.studentName == "") { this.errors.Add("Please add student's name.\r\n"); }
+            if (String.IsNullOrWhiteSpace(Globals.studentName)) { this.errors.Add("Please add student's name.\r\n"); }
             if (Globals.studentInitials.Length != 2) { this.errors.Add("Invalid student controller initials.\r\n"); }
             /*if (this.ratings[0] == null) { this.errors.Add("Please select the student's rating.\r\n"); }
             if (this.ratings[1] == null) { this.errors.Add("Please select the training type.\r\n"); }*/

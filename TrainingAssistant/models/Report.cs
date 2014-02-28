@@ -14,6 +14,7 @@ namespace TrainingAssistant.models
         public string dComment;
         public string sComment;
         public string reviewItems;
+        public string log;
         protected Session sesh;
         public Report(List<string> reviewed, List<Dictionary<string, int>> events, Session sesh)
         {
@@ -23,11 +24,12 @@ namespace TrainingAssistant.models
             this.sComment = "";
             this.sesh = sesh;
             this.reviewItems = "";
+            generateCbReview();
         }
 
         public string generateDatabaseComment()
         {
-            return generateDatabaseHeader() + "\r\n" + generateCbReview() + "\r\n" + generateEventLog();
+            return generateDatabaseHeader() + "\r\n" + this.log + "\r\n" + "\r\n" + generateEventLog();
         }
 
         public string generateStudentComment()
@@ -40,7 +42,7 @@ namespace TrainingAssistant.models
             string report = generateSummary();
             report += generateDatabaseComment();
             report += generateStudentComment();
-            report += generateCbReview();
+            report += this.log + "\r\n" + this.reviewItems;
 
             return report;
         }
@@ -52,7 +54,7 @@ namespace TrainingAssistant.models
 
         protected string generateDatabaseHeader()
         {
-            string h = "Spent " + Globals.getTotalTime().ToString() + " minutes with " + Globals.studentName + " training on " + Globals.trainingStr + "\r\n";
+            string h = "Spent " + Globals.getTotalTime().ToString() + " minutes with " + Globals.studentName + " training on " + Globals.trainingStr + ". " + Globals.getBriefTime().ToString() + " minutes reviewing, " + Globals.getLiveTime().ToString() + " minutes training.\r\n";
             foreach(string s in this.reviewed)
             {
                 h += s + "\r\n";
@@ -63,90 +65,95 @@ namespace TrainingAssistant.models
 
         protected string generateStudentHeader()
         {
-            string h = Globals.studentInitials + ", in this session we spent " + Globals.getTotalTime().ToString() + " minutes training on " + Globals.trainingStr + ".\r\n";
-            generateCbReview();
-            string ri = this.reviewItems == "" ? "No items were marked for review.\r\n" : "You should review " + this.reviewItems + "check the syllabi for reference materials.\r\n";
+            string h = Globals.studentInitials + ", in this session we spent " + Globals.getBriefTime().ToString() + " minutes reviewing and " + Globals.getLiveTime().ToString() + " minutes training on " + Globals.trainingStr + ".\r\n";
+            string ri;
+            if (this.reviewItems == "")
+            {
+                ri = "No items were marked for review.\r\n";
+            }
+            else
+            {
+                ri = "You should review " + this.reviewItems + "check the syllabi for reference materials.\r\n";
+            }
             h += ri;
             if (this.sesh.ots == 2) { h += "\r\nCongratulations, OTS passed!\r\n"; }
             return h;
         }
 
-        protected string generateCbReview()
+        protected void generateCbReview()
         {
-            string log = "Your general performance was as follows:\r\n";
             switch (this.events[5]["brief"])
             {
-                case 10: log += "Controller brief - Satisfactory\r\n"; break;
-                case 5: log += "Controller brief - Need Improvement\r\n"; this.reviewItems += "controller briefing, "; break;
-                case 0: log += "Controller brief - Unsatisfactory\r\n"; this.reviewItems += "controller briefing, "; break;
+                case 10: this.log += "Controller brief - Satisfactory\r\n"; break;
+                case 5: this.log += "Controller brief - Need Improvement\r\n"; this.reviewItems += "controller briefing, "; break;
+                case 0: this.log += "Controller brief - Unsatisfactory\r\n"; this.reviewItems += "controller briefing, "; break;
             }
             switch (this.events[5]["runway"])
             {
-                case 10: log += "Runway selection - Satisfactory\r\n"; break;
-                case 5: log += "Runway selection - Need Improvement\r\n"; this.reviewItems += "runway selection, "; break;
-                case 0: log += "Runway selection - Unsatisfactory\r\n"; this.reviewItems += "runway selection, "; break;
+                case 10: this.log += "Runway selection - Satisfactory\r\n"; break;
+                case 5: this.log += "Runway selection - Need Improvement\r\n"; this.reviewItems += "runway selection, "; break;
+                case 0: this.log += "Runway selection - Unsatisfactory\r\n"; this.reviewItems += "runway selection, "; break;
             }
             switch (this.events[5]["weather"])
             {
-                case 10: log += "Weather awareness - Satisfactory\r\n"; break;
-                case 5: log += "Weather awareness - Need Improvement\r\n"; this.reviewItems += "weather and ATIS/METARs, "; break;
-                case 0: log += "Weather awareness - Unsatisfactory\r\n"; this.reviewItems += "weather and ATIS/METARs, "; break;
+                case 10: this.log += "Weather awareness - Satisfactory\r\n"; break;
+                case 5: this.log += "Weather awareness - Need Improvement\r\n"; this.reviewItems += "weather and ATIS/METARs, "; break;
+                case 0: this.log += "Weather awareness - Unsatisfactory\r\n"; this.reviewItems += "weather and ATIS/METARs, "; break;
             }
             switch (this.events[5]["coordination"])
             {
-                case 10: log += "Controller coordination - Satisfactory\r\n"; break;
-                case 5: log += "Controller coordination - Need Improvement\r\n"; this.reviewItems += "controller coordination, "; break;
-                case 0: log += "Controller coordination - Unsatisfactory\r\n"; this.reviewItems += "controller coordination, "; break;
+                case 10: this.log += "Controller coordination - Satisfactory\r\n"; break;
+                case 5: this.log += "Controller coordination - Need Improvement\r\n"; this.reviewItems += "controller coordination, "; break;
+                case 0: this.log += "Controller coordination - Unsatisfactory\r\n"; this.reviewItems += "controller coordination, "; break;
             }
             switch (this.events[5]["flow"])
             {
-                case 10: log += "Traffic flow - Satisfactory\r\n"; break;
-                case 5: log += "Traffic flow - Need Improvement\r\n"; this.reviewItems += "traffic flow management, "; break;
-                case 0: log += "Traffic flow - Unsatisfactory\r\n"; this.reviewItems += "traffic flow management, "; break;
+                case 10: this.log += "Traffic flow - Satisfactory\r\n"; break;
+                case 5: this.log += "Traffic flow - Need Improvement\r\n"; this.reviewItems += "traffic flow management, "; break;
+                case 0: this.log += "Traffic flow - Unsatisfactory\r\n"; this.reviewItems += "traffic flow management, "; break;
             }
             switch (this.events[5]["identity"])
             {
-                case 10: log += "Aircraft identity - Satisfactory\r\n"; break;
-                case 5: log += "Aircraft identity - Need Improvement\r\n"; this.reviewItems += "maintaining aircraft identity, "; break;
-                case 0: log += "Aircraft identity - Unsatisfactory\r\n"; this.reviewItems += "maintaining aircraft identity, "; break;
+                case 10: this.log += "Aircraft identity - Satisfactory\r\n"; break;
+                case 5: this.log += "Aircraft identity - Need Improvement\r\n"; this.reviewItems += "maintaining aircraft identity, "; break;
+                case 0: this.log += "Aircraft identity - Unsatisfactory\r\n"; this.reviewItems += "maintaining aircraft identity, "; break;
             }
             switch (this.events[5]["separation"])
             {
-                case 10: log += "Aircraft separation - Satisfactory\r\n"; break;
-                case 5: log += "Aircraft separation - Need Improvement\r\n"; this.reviewItems += "maintaining minimum separation, "; break;
-                case 0: log += "Aircraft separation - Unsatisfactory\r\n"; this.reviewItems += "maintaining minimum separation, "; break;
+                case 10: this.log += "Aircraft separation - Satisfactory\r\n"; break;
+                case 5: this.log += "Aircraft separation - Need Improvement\r\n"; this.reviewItems += "maintaining minimum separation, "; break;
+                case 0: this.log += "Aircraft separation - Unsatisfactory\r\n"; this.reviewItems += "maintaining minimum separation, "; break;
             }
             switch (this.events[5]["pointouts"])
             {
-                case 10: log += "Traffic pointouts - Satisfactory\r\n"; break;
-                case 5: log += "Traffic pointouts - Need Improvement\r\n"; this.reviewItems += "providing traffic and safety pointouts, "; break;
-                case 0: log += "Traffic pointouts - Unsatisfactory\r\n"; this.reviewItems += "providing traffic and safety pointouts, "; break;
+                case 10: this.log += "Traffic pointouts - Satisfactory\r\n"; break;
+                case 5: this.log += "Traffic pointouts - Need Improvement\r\n"; this.reviewItems += "providing traffic and safety pointouts, "; break;
+                case 0: this.log += "Traffic pointouts - Unsatisfactory\r\n"; this.reviewItems += "providing traffic and safety pointouts, "; break;
             }
             switch (this.events[5]["airspace"])
             {
-                case 10: log += "Airspace knowledge - Satisfactory\r\n"; break;
-                case 5: log += "Airspace knowledge - Need Improvement\r\n"; this.reviewItems += "general airspace knowledge, "; break;
-                case 0: log += "Airspace knowledge - Unsatisfactory\r\n"; this.reviewItems += "general airspace knowledge, "; break;
+                case 10: this.log += "Airspace knowledge - Satisfactory\r\n"; break;
+                case 5: this.log += "Airspace knowledge - Need Improvement\r\n"; this.reviewItems += "general airspace knowledge, "; break;
+                case 0: this.log += "Airspace knowledge - Unsatisfactory\r\n"; this.reviewItems += "general airspace knowledge, "; break;
             }
             switch (this.events[5]["loa"])
             {
-                case 10: log += "LOA and SOP knowledge - Satisfactory\r\n"; break;
-                case 5: log += "LOA and SOP knowledge - Need Improvement\r\n"; this.reviewItems += "LOA and SOP directives, "; break;
-                case 0: log += "LOA and SOP knowledge - Unsatisfactory\r\n"; this.reviewItems += "LOA and SOP directives, "; break;
+                case 10: this.log += "LOA and SOP knowledge - Satisfactory\r\n"; break;
+                case 5: this.log += "LOA and SOP knowledge - Need Improvement\r\n"; this.reviewItems += "LOA and SOP directives, "; break;
+                case 0: this.log += "LOA and SOP knowledge - Unsatisfactory\r\n"; this.reviewItems += "LOA and SOP directives, "; break;
             }
             switch (this.events[5]["phraseology"])
             {
-                case 10: log += "Phraseology - Satisfactory\r\n"; break;
-                case 5: log += "Phraseology - Need Improvement\r\n"; this.reviewItems += "phraseology, "; break;
-                case 0: log += "Phraseology - Unsatisfactory\r\n"; this.reviewItems += "phraseology, "; break;
+                case 10: this.log += "Phraseology - Satisfactory\r\n"; break;
+                case 5: this.log += "Phraseology - Need Improvement\r\n"; this.reviewItems += "phraseology, "; break;
+                case 0: this.log += "Phraseology - Unsatisfactory\r\n"; this.reviewItems += "phraseology, "; break;
             }
             switch (this.events[5]["priority"])
             {
-                case 10: log += "Duty priority knowledge - Satisfactory\r\n"; break;
-                case 5: log += "Duty priority knowledge - Need Improvement\r\n"; this.reviewItems += "duty priorities, "; break;
-                case 0: log += "Duty priority knowledge - Unsatisfactory\r\n"; this.reviewItems += "duty priorities, "; break;
+                case 10: this.log += "Duty priority knowledge - Satisfactory\r\n"; break;
+                case 5: this.log += "Duty priority knowledge - Need Improvement\r\n"; this.reviewItems += "duty priorities, "; break;
+                case 0: this.log += "Duty priority knowledge - Unsatisfactory\r\n"; this.reviewItems += "duty priorities, "; break;
             }
-            return log + "\r\n";
         }
         
         public string generateSummary()
@@ -216,17 +223,6 @@ namespace TrainingAssistant.models
                 log += nEvents.ContainsKey("coordination") ? nEvents["coordination"] + " missed or incorrect controller coordination\r\n" : "";
             }
 
-
-            /*this.btn_u_sequence = new System.Windows.Forms.Button();
-            this.btn_u_phraseology = new System.Windows.Forms.Button();
-            this.btn_u_pointouts = new System.Windows.Forms.Button();
-            this.btn_u_situational = new System.Windows.Forms.Button();
-            this.btn_u_separation = new System.Windows.Forms.Button();
-            this.btn_u_flow = new System.Windows.Forms.Button();
-            this.btn_d_nearincident = new System.Windows.Forms.Button();
-            this.btn_d_phraseology = new System.Windows.Forms.Button();
-            this.btn_d_separation = new System.Windows.Forms.Button();
-            this.btn_d_incident = new System.Windows.Forms.Button();*/
             if (pEvents.Count == 0) { log += "No markups were returned from the session.\r\n"; }
             else
             {
@@ -236,6 +232,7 @@ namespace TrainingAssistant.models
                 log += pEvents.ContainsKey("phraseology") ? pEvents["phraseology"] + " instances of good phraseology\r\n" : "";
                 log += pEvents.ContainsKey("separation") ? pEvents["separation"] + " instances of good aircraft separation\r\n" : "";
                 log += pEvents.ContainsKey("pointouts") ? pEvents["pointouts"] + " instances of good traffic and safety pointouts\r\n" : "";
+                log += pEvents.ContainsKey("sequencing") ? pEvents["sequencing"] + " instances of good sequencing and spacing\r\n" : "";
             }
             return log + "\r\n";
         }

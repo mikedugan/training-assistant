@@ -24,5 +24,15 @@ namespace TrainingAssistant
         {
             return Math.Round(Globals.sessionFinish.Subtract(Globals.sessionStart).TotalMinutes, 2);
         }
+
+        public static double getBriefTime()
+        {
+            return Math.Round(Globals.briefFinish.Subtract(Globals.sessionStart).TotalMinutes, 2);
+        }
+
+        public static double getLiveTime()
+        {
+            return Math.Round(Globals.sessionFinish.Subtract(Globals.briefFinish).TotalMinutes, 2);
+        }
     }
 }

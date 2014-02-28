@@ -228,6 +228,7 @@
             this.student_training.Name = "student_training";
             this.student_training.Size = new System.Drawing.Size(140, 21);
             this.student_training.TabIndex = 25;
+            this.student_training.SelectedIndex = 0;
             // 
             // student_rating
             // 
@@ -244,6 +245,7 @@
             this.student_rating.Name = "student_rating";
             this.student_rating.Size = new System.Drawing.Size(140, 21);
             this.student_rating.TabIndex = 24;
+            this.student_rating.SelectedIndex = 0;
             // 
             // student_lname
             // 

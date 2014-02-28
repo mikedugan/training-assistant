@@ -36,7 +36,7 @@ namespace TrainingAssistant.views
         {
             this.updateTimer();
             this.s.score = this.s.updateScore();
-            this.lbl_score.Text = (this.s.score * 100).ToString() + "%";
+            this.lbl_score.Text = Math.Round((this.s.score * 100), 2).ToString() + "%";
             if (this.s.checkFail()) { this.lbl_fail.Text = "Fail"; } else this.lbl_fail.Text = "Pass";
         }
         private void updateTimer()
@@ -48,7 +48,9 @@ namespace TrainingAssistant.views
         {
             this.lbl_iname.Text = Globals.insName + "(" + Globals.insInitials + ")";
             this.lbl_sname.Text = Globals.studentName + "(" + Globals.studentInitials + ")";
-            /*if (this.seshType < 3;
+            this.lbl_fail.Text = Globals.studentTraining.ToString();
+            this.button1.Enabled = false;
+            if (Globals.studentTraining < 3)
             {
                 this.btn_d_landing.Enabled = false;
                 this.btn_d_takeoff.Enabled = false;
@@ -58,14 +60,14 @@ namespace TrainingAssistant.views
                 this.cb_separation.Enabled = false;
             }
 
-            if (this.seshType < 6)
+            if (Globals.studentTraining < 6)
             {
                 this.btn_d_appclearance.Enabled = false;
                 this.btn_d_mva.Enabled = false;
                 this.btn_d_loasop.Enabled = false;
                 this.btn_d_fix.Enabled = false;
                 this.btn_d_final.Enabled = false;
-            }*/
+            }
 
         }
 
@@ -229,6 +231,7 @@ namespace TrainingAssistant.views
         private void btn_golive_Click(object sender, EventArgs e)
         {
             Globals.briefFinish = DateTime.Now;
+            this.button1.Enabled = true;
         }
         #endregion
 
