@@ -1,5 +1,5 @@
 <h1>Training Assistant</h1>
-
+Current Version: 0.12
 <h3>About</h3>
 <p>Training Assistant is a program written specifically for instructors and mentors on the VATSIM network. The objective is to give training staff a tool to actively keep track of a current training session.</p>
 
