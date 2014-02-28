@@ -223,6 +223,14 @@ namespace TrainingAssistant.models
                 log += nEvents.ContainsKey("coordination") ? nEvents["coordination"] + " missed or incorrect controller coordination\r\n" : "";
             }
 
+            if (this.sesh.customMarkdowns.Count > 0)
+            {
+                foreach(string s in this.sesh.customMarkdowns)
+                {
+                    log += "-" + s + "\r\n";
+                }
+            }
+
             if (pEvents.Count == 0) { log += "No markups were returned from the session.\r\n"; }
             else
             {
@@ -233,6 +241,13 @@ namespace TrainingAssistant.models
                 log += pEvents.ContainsKey("separation") ? pEvents["separation"] + " instances of good aircraft separation\r\n" : "";
                 log += pEvents.ContainsKey("pointouts") ? pEvents["pointouts"] + " instances of good traffic and safety pointouts\r\n" : "";
                 log += pEvents.ContainsKey("sequencing") ? pEvents["sequencing"] + " instances of good sequencing and spacing\r\n" : "";
+            }
+            if(this.sesh.customMarkups.Count > 0)
+            {
+                foreach(string s in this.sesh.customMarkups)
+                {
+                    log += "-" + s + "\r\n";
+                }
             }
             return log + "\r\n";
         }

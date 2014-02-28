@@ -14,10 +14,14 @@ namespace TrainingAssistant.models
         public int markups { get; set; }
         public int markdowns { get; set; }
         public List<string> reviewed { get; set; }
+        public List<string> customMarkdowns { get; set; }
+        public List<string> customMarkups { get; set; }
         public int ots { get; set; }
 
         public int posPoints { get; set; }
         public int negPoints { get; set; }
+        public int omdPoints { get; set; }
+        public int omuPoints { get; set; }
         public double score { get; set; }
         public TrafficLevel traffic { get; set; }
         public ComplexityLevel complexity { get; set; }
@@ -39,7 +43,11 @@ namespace TrainingAssistant.models
             this.posPoints = 120;
             this.modifier = 1;
             this.ots = 0;
+            this.omdPoints = 0;
+            this.omuPoints = 0;
             this.reviewed = new List<string>();
+            this.customMarkdowns = new List<string>();
+            this.customMarkups = new List<string>();
             this.combos = new Dictionary<string, int>()
             {
                 {"brief", 10},
@@ -216,7 +224,7 @@ namespace TrainingAssistant.models
             n += this.genEvents["incident"] * 6;
             n += this.genEvents["coordination"] * 2;
             n += this.genEvents["readback"] * 1;
-
+            n += this.omdPoints;
             return n;
         }
 
@@ -229,7 +237,7 @@ namespace TrainingAssistant.models
             n += this.posEvents["separation"] * 3;
             n += this.posEvents["pointouts"] * 2;
             n += this.posEvents["sequencing"] * 3;
-
+            n += this.omuPoints;
             return n;
         }
     }

@@ -626,5 +626,78 @@ namespace TrainingAssistant.views
             
         }
 
+        private void btn_u_other_Click(object sender, EventArgs e)
+        {
+            string str = "";
+            InputBox("Custom Markup", "Please enter your event", ref str, true, this.s);
+            this.s.customMarkups.Add(str);
+        }
+
+        private void btn_d_other_Click(object sender, EventArgs e)
+        {
+            string str = "";
+            InputBox("Custom Markdown", "Please enter your custom event", ref str, false, this.s);
+            this.s.customMarkdowns.Add(str);
+        }
+        public static DialogResult InputBox(string title, string promptText, ref string value, bool isMarkup, Session s)
+        {
+            Form form = new Form();
+            Label label = new Label();
+            TextBox textBox = new TextBox();
+            Label pointLabel = new Label();
+            TextBox points = new TextBox();
+            Button buttonOk = new Button();
+            Button buttonCancel = new Button();
+
+            form.Text = title;
+            label.Text = promptText;
+            textBox.Text = value;
+            points.Text = "0";
+
+            buttonOk.Text = "OK";
+            buttonCancel.Text = "Cancel";
+            buttonOk.DialogResult = DialogResult.OK;
+            buttonCancel.DialogResult = DialogResult.Cancel;
+
+            label.SetBounds(9, 20, 372, 13);
+            textBox.SetBounds(12, 36, 372, 20);
+            pointLabel.SetBounds(9, 61, 372, 13);
+            points.SetBounds(12, 81, 372, 20);
+            buttonOk.SetBounds(228, 107, 75, 23);
+            buttonCancel.SetBounds(309, 107, 75, 23);
+
+            pointLabel.Text = "Point value: (1 = wrong squawk, 6 = crashed planes)";
+            label.AutoSize = true;
+            textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
+            points.Anchor = textBox.Anchor | AnchorStyles.Right;
+            buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+
+            form.ClientSize = new Size(396, 137);
+            form.Controls.AddRange(new Control[] { label, textBox, buttonOk, buttonCancel, pointLabel, points });
+            textBox.TabIndex = 1;
+            pointLabel.TabIndex = 2;
+            buttonOk.TabIndex = 3;
+            buttonCancel.TabIndex = 4;
+            form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
+            form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.MinimizeBox = false;
+            form.MaximizeBox = false;
+            form.AcceptButton = buttonOk;
+            form.CancelButton = buttonCancel;
+            DialogResult dialogResult = form.ShowDialog();
+            value = textBox.Text;
+            if(isMarkup)
+            {
+                s.omuPoints += int.Parse(points.Text);
+            }
+            else
+            {
+                s.omdPoints += int.Parse(points.Text);
+            }
+            return dialogResult;
+        }
+
     }
 }

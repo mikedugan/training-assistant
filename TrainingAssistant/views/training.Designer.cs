@@ -129,6 +129,8 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btn_golive = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.btn_u_other = new System.Windows.Forms.Button();
+            this.btn_d_other = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -906,7 +908,7 @@
             "VFR",
             "MVFR",
             "IFR"});
-            this.cb_lvl_weather.Location = new System.Drawing.Point(338, 408);
+            this.cb_lvl_weather.Location = new System.Drawing.Point(338, 434);
             this.cb_lvl_weather.Name = "cb_lvl_weather";
             this.cb_lvl_weather.Size = new System.Drawing.Size(131, 22);
             this.cb_lvl_weather.TabIndex = 99;
@@ -923,7 +925,7 @@
             "Moderate",
             "Hard",
             "Very Hard"});
-            this.cb_lvl_complexity.Location = new System.Drawing.Point(338, 435);
+            this.cb_lvl_complexity.Location = new System.Drawing.Point(338, 461);
             this.cb_lvl_complexity.Name = "cb_lvl_complexity";
             this.cb_lvl_complexity.Size = new System.Drawing.Size(131, 22);
             this.cb_lvl_complexity.TabIndex = 100;
@@ -938,7 +940,7 @@
             "Light",
             "Moderate",
             "Heavy"});
-            this.cb_lvl_traffic.Location = new System.Drawing.Point(338, 462);
+            this.cb_lvl_traffic.Location = new System.Drawing.Point(338, 488);
             this.cb_lvl_traffic.Name = "cb_lvl_traffic";
             this.cb_lvl_traffic.Size = new System.Drawing.Size(131, 22);
             this.cb_lvl_traffic.TabIndex = 101;
@@ -948,7 +950,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label29.Location = new System.Drawing.Point(241, 410);
+            this.label29.Location = new System.Drawing.Point(241, 436);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(54, 14);
             this.label29.TabIndex = 102;
@@ -958,7 +960,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label30.Location = new System.Drawing.Point(241, 437);
+            this.label30.Location = new System.Drawing.Point(241, 463);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(66, 14);
             this.label30.TabIndex = 103;
@@ -968,7 +970,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Calibri", 9F);
-            this.label31.Location = new System.Drawing.Point(243, 466);
+            this.label31.Location = new System.Drawing.Point(243, 492);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(38, 14);
             this.label31.TabIndex = 104;
@@ -1348,12 +1350,36 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Status";
             // 
+            // btn_u_other
+            // 
+            this.btn_u_other.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_u_other.Location = new System.Drawing.Point(229, 390);
+            this.btn_u_other.Name = "btn_u_other";
+            this.btn_u_other.Size = new System.Drawing.Size(115, 23);
+            this.btn_u_other.TabIndex = 135;
+            this.btn_u_other.Text = "Other Markup";
+            this.btn_u_other.UseVisualStyleBackColor = false;
+            this.btn_u_other.Click += new System.EventHandler(this.btn_u_other_Click);
+            // 
+            // btn_d_other
+            // 
+            this.btn_d_other.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_d_other.Location = new System.Drawing.Point(354, 390);
+            this.btn_d_other.Name = "btn_d_other";
+            this.btn_d_other.Size = new System.Drawing.Size(129, 23);
+            this.btn_d_other.TabIndex = 136;
+            this.btn_d_other.Text = "Other Markdown";
+            this.btn_d_other.UseVisualStyleBackColor = false;
+            this.btn_d_other.Click += new System.EventHandler(this.btn_d_other_Click);
+            // 
             // training
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.ClientSize = new System.Drawing.Size(643, 683);
+            this.Controls.Add(this.btn_d_other);
+            this.Controls.Add(this.btn_u_other);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.btn_golive);
             this.Controls.Add(this.groupBox6);
@@ -1534,5 +1560,7 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btn_golive;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button btn_u_other;
+        private System.Windows.Forms.Button btn_d_other;
     }
 }
